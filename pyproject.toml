@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minigrad"
+version = "0.1.0"
+description = "A tiny autodiff and neural network framework built from scratch for learning"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+where = ["src"]

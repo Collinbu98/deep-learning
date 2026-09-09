@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/minigrad/__init__.py
+src/minigrad/value.py
+src/minigrad.egg-info/PKG-INFO
+src/minigrad.egg-info/SOURCES.txt
+src/minigrad.egg-info/dependency_links.txt
+src/minigrad.egg-info/top_level.txt
+tests/test_value.py
