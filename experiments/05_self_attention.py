@@ -40,6 +40,25 @@ Causal mode
     seen so far. Non-causal attention stays the default; pass causal=True to
     turn the mask on.
 
+Multi-head attention
+    One attention head can only average value vectors with a single set of
+    weights. Multi-head attention runs several attention heads in parallel,
+    each with a smaller slice of the embedding dimension, so different heads
+    can learn to focus on different relationships. The embedding dimension D is
+    split evenly across H heads, giving a head dimension d_head = D / H (so H
+    must divide D exactly). Each head produces a [B, T, d_head] output; the
+    heads are concatenated back to [B, T, D] and mixed by an output projection.
+    With H = 1 this reduces to ordinary single-head attention.
+
+Dropout
+    Dropout randomly zeroes a fraction of activations during training, which
+    stops the model from relying on any single unit and acts as regularization.
+    Both attention classes accept a dropout probability (default 0.0, disabled)
+    in [0, 1). It is applied to the attention weights after the softmax (before
+    multiplying by the values) and, for multi-head attention, after the output
+    projection. Dropout is controlled by the module's train/eval mode: active in
+    training, a no-op during evaluation and generation.
+
 About the demonstration
     The embeddings below are RANDOM synthetic vectors. Nothing here is trained
     on language and the model has learned no meaningful relationships; the point
@@ -61,6 +80,16 @@ SEQ_LEN = 4
 EMBED_DIM = 8
 
 
+def validate_dropout(dropout):
+    """Reject dropout probabilities outside [0, 1).
+
+    A probability of 0 disables dropout; 1.0 (drop everything) is not a useful
+    setting here, so 1.0 and anything outside [0, 1) is rejected.
+    """
+    if not 0.0 <= dropout < 1.0:
+        raise ValueError(f"dropout must be in [0, 1), got {dropout}")
+
+
 class SelfAttention(nn.Module):
     """Single-head self-attention over batch-first sequences [B, T, D].
 
@@ -68,15 +97,24 @@ class SelfAttention(nn.Module):
     queries, keys and values all have the same shape as the input. The module
     can return the attention weights as well as the output so the rows can be
     inspected.
+
+    Dropout (default 0.0, i.e. disabled) is applied to the attention weights
+    after the softmax and before multiplying by the values, the conventional
+    location for attention dropout. It follows the module's train/eval mode, so
+    it is active only during training.
     """
 
-    def __init__(self, embed_dim):
+    def __init__(self, embed_dim, dropout=0.0):
         super().__init__()
+        validate_dropout(dropout)
         self.embed_dim = embed_dim
+        self.dropout = dropout
 
         self.query = nn.Linear(embed_dim, embed_dim)
         self.key = nn.Linear(embed_dim, embed_dim)
         self.value = nn.Linear(embed_dim, embed_dim)
+
+        self.attn_dropout = nn.Dropout(dropout)
 
     def forward(self, x, return_weights=False, causal=False):
         # x: [B, T, D]
@@ -96,9 +134,13 @@ class SelfAttention(nn.Module):
         # tokens: nonnegative, summing to 1.
         weights = torch.softmax(scores, dim=-1)  # [B, T, T]
 
+        # Dropout regularizes the attention distribution during training. The
+        # clean weights are still returned for inspection.
+        dropped_weights = self.attn_dropout(weights)
+
         # Weighted average of the value vectors. weights [B, T, T] @ V [B, T, D]
         # mixes all tokens and returns [B, T, D] - same shape as the input.
-        output = weights @ values  # [B, T, D]
+        output = dropped_weights @ values  # [B, T, D]
 
         if return_weights:
             return output, weights
@@ -120,6 +162,81 @@ class SelfAttention(nn.Module):
         )
         # -inf survives as weight 0 after softmax, so each row still sums to 1.
         return scores.masked_fill(future, float("-inf"))
+
+
+class MultiHeadSelfAttention(nn.Module):
+    """Multi-head self-attention over batch-first sequences [B, T, D].
+
+    Splits the embedding dimension D into n_heads slices of size
+    d_head = D / n_heads, runs scaled dot-product attention independently in
+    each slice, concatenates the head outputs back to [B, T, D] and applies a
+    final output projection. n_heads must be at least 1 and divide D exactly.
+
+    With n_heads == 1 the computation matches a single attention head (plus the
+    output projection). The module can return the attention weights of every
+    head as [B, H, T, T].
+
+    Dropout (default 0.0, i.e. disabled) is applied to the attention weights
+    after the softmax and, separately, after the output projection. Both follow
+    the module's train/eval mode.
+    """
+
+    def __init__(self, d_model, n_heads=1, dropout=0.0):
+        super().__init__()
+        validate_dropout(dropout)
+        if n_heads < 1:
+            raise ValueError(f"n_heads must be at least 1, got {n_heads}")
+        if d_model % n_heads != 0:
+            raise ValueError(
+                f"d_model ({d_model}) must be divisible by n_heads ({n_heads})"
+            )
+
+        self.d_model = d_model
+        self.n_heads = n_heads
+        self.head_dim = d_model // n_heads
+        self.dropout = dropout
+
+        # One projection per role for the whole model; the split into heads
+        # happens afterwards on the projected tensors.
+        self.query = nn.Linear(d_model, d_model)
+        self.key = nn.Linear(d_model, d_model)
+        self.value = nn.Linear(d_model, d_model)
+        self.out_proj = nn.Linear(d_model, d_model)
+
+        self.attn_dropout = nn.Dropout(dropout)
+        self.out_dropout = nn.Dropout(dropout)
+
+    def _split_heads(self, x):
+        # x: [B, T, D] -> [B, H, T, d_head]
+        batch, seq_len, _ = x.shape
+        x = x.view(batch, seq_len, self.n_heads, self.head_dim)
+        return x.transpose(1, 2)
+
+    def forward(self, x, return_weights=False, causal=False):
+        # x: [B, T, D]
+        batch, seq_len, _ = x.shape
+
+        queries = self._split_heads(self.query(x))  # [B, H, T, d_head]
+        keys = self._split_heads(self.key(x))  # [B, H, T, d_head]
+        values = self._split_heads(self.value(x))  # [B, H, T, d_head]
+
+        # Each head scores its queries against its keys: [B, H, T, T].
+        scores = queries @ keys.transpose(-2, -1) / math.sqrt(self.head_dim)
+
+        if causal:
+            scores = SelfAttention._apply_causal_mask(scores)
+
+        weights = torch.softmax(scores, dim=-1)  # [B, H, T, T]
+        dropped_weights = self.attn_dropout(weights)
+        attended = dropped_weights @ values  # [B, H, T, d_head]
+
+        # Concatenate the heads: [B, H, T, d_head] -> [B, T, D].
+        attended = attended.transpose(1, 2).contiguous().view(batch, seq_len, self.d_model)
+        output = self.out_dropout(self.out_proj(attended))  # [B, T, D]
+
+        if return_weights:
+            return output, weights
+        return output
 
 
 def make_input(seed=SEED):
