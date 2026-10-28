@@ -1,0 +1,119 @@
+{
+  "name": "Experiment 21 independent paraphrase development set",
+  "source": "data/rag_corpus",
+  "notes": "Independent, manually labeled paraphrase development cases for Experiment 21. Source IDs use 300-series chunk indices to avoid colliding with prior development and relevance-extension cases. Labels and rationales were written before paraphrase-aware evaluation.",
+  "cases": [
+    {
+      "id": "dev21_p1",
+      "type": "paraphrase",
+      "claim": "Jupiter's orbital period is about 11.86 Earth years.",
+      "citations": [
+        "jupiter#300"
+      ],
+      "passages": {
+        "jupiter#300": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System. It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers. Jupiter is more massive than all the other planets combined, at about 2.5 times their total mass. Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet. One year on Jupiter lasts about 11.86 Earth years. Jupiter is made mostly of hydrogen and helium. Its atmosphere features the Great Red Spot, a giant storm larger than Earth. Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto, known as the Galilean moons."
+      },
+      "expected": "supported",
+      "rationale": "The claim's orbital-period meaning is paraphrased through the evidence's one-year phrasing.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_p2",
+      "type": "paraphrase",
+      "claim": "Venus's day is longer than its year.",
+      "citations": [
+        "venus#300"
+      ],
+      "passages": {
+        "venus#300": "Venus is the second planet from the Sun and the similar in size to Earth. It has a diameter of 12,104 kilometers and orbits at an average distance of 108.2 million kilometers. Venus rotates very slowly, and its rotation is retrograde, meaning it turns in the opposite direction to most planets. A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. Venus therefore has the longest day of any planet. The atmosphere of Venus is about 96 percent carbon dioxide, with thick clouds of sulfuric acid. Surface pressure is about 92 times the pressure on Earth. A runaway greenhouse effect makes Venus the hottest planet, with a surface temperature of about 465 degrees Celsius. Venus has no moons."
+      },
+      "expected": "supported",
+      "rationale": "The day-versus-year comparison is paraphrased from rotation and day wording.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_p3",
+      "type": "paraphrase",
+      "claim": "Mercury rotates in the same direction as most planets.",
+      "citations": [
+        "mercury#300"
+      ],
+      "passages": {
+        "mercury#300": "Mercury is the closest planet to the Sun. It has a diameter of 4,879 kilometers and orbits the Sun at an average distance of 57.9 million kilometers. Mercury is the smallest of the eight planets. Mercury spins slowly on its axis. One day on Mercury lasts about 58.6 Earth days, while one year lasts only 88 Earth days. Because the planet has almost no atmosphere, temperatures swing from about minus 173 degrees Celsius at night to 427 degrees Celsius during the day."
+      },
+      "expected": "supported",
+      "rationale": "The direction wording is paraphrased from spin/rotation wording.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_p4",
+      "type": "paraphrase",
+      "claim": "Earth's atmosphere is mostly nitrogen.",
+      "citations": [
+        "earth#300"
+      ],
+      "passages": {
+        "earth#300": "Earth is the third planet from the Sun and the only planet known to support life. It has a diameter of 12,742 kilometers and orbits at an average distance of 149.6 million kilometers, which is defined as one astronomical unit. Earth rotates once every 23.9 hours and completes one orbit in 365.25 days. It has one natural moon. About 71 percent of the surface is covered by oceans. The atmosphere of Earth is mostly nitrogen, at about 78 percent, with about 21 percent oxygen and small amounts of other gases. Average surface temperature is roughly 15 degrees Celsius. Liquid water is stable on the surface, which is essential for life we know it."
+      },
+      "expected": "supported",
+      "rationale": "A simple factual paraphrase with minimal wording change.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_p5",
+      "type": "high_overlap_wrong",
+      "claim": "Mars has a volcano on Earth.",
+      "citations": [
+        "mars#300"
+      ],
+      "passages": {
+        "mars#300": "Mars is the fourth planet from the Sun and is often called the Red Planet because of iron oxide dust on its surface. It has a diameter of 6,779 kilometers and orbits at an average distance of 227.9 million kilometers. A day on Mars lasts about 24.6 hours, and a year lasts 687 Earth days. Mars has two small moons, Phobos and Deimos. The atmosphere is thin and about 95 percent carbon dioxide. Average surface temperature is about minus 63 degrees Celsius. Mars has the largest volcano in the Solar System, Olympus Mons, which rises about 21.9 kilometers. It also has a huge canyon system called Valles Marineris. Evidence suggests that liquid water once flowed on the surface."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The shared word volcano creates lexical overlap, but the evidence concerns Mars, not Earth.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_c1",
+      "type": "contradiction",
+      "claim": "Jupiter's orbital period is about 12 Earth years.",
+      "citations": [
+        "jupiter#300"
+      ],
+      "passages": {
+        "jupiter#300": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System. It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers. Jupiter is more massive than all the other planets combined, at about 2.5 times their total mass. Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet. One year on Jupiter lasts about 11.86 Earth years. Jupiter is made mostly of hydrogen and helium. Its atmosphere features the Great Red Spot, a giant storm larger than Earth. Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto, known as the Galilean moons."
+      },
+      "expected": "contradicted",
+      "rationale": "The claim changes the supported orbital period from about 11.86 Earth years to about 12 Earth years.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_i1",
+      "type": "irrelevant_citation",
+      "claim": "Saturn has a huge canyon system called Valles Marineris.",
+      "citations": [
+        "saturn#300"
+      ],
+      "passages": {
+        "saturn#300": "Saturn is the sixth planet from the Sun and is famous for its bright ring system. It has a diameter of 116,460 kilometers and orbits at an average distance of 1.43 billion kilometers. Saturn rotates quickly. A day on Saturn lasts about 10.7 hours, and a year lasts about 29.4 Earth years. Saturn is the least dense planet, with an average density of 0.687 grams per cubic centimeter, which is less than the density of water. The rings of Saturn are made mostly of water ice, along with some rock and dust. Saturn has 146 known moons. Its largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "Valles Marineris is associated with Mars, not Saturn, so the citation is irrelevant.",
+      "window_context": "whole_passage"
+    },
+    {
+      "id": "dev21_n1",
+      "type": "insufficient",
+      "claim": "Mars has liquid water on its surface today.",
+      "citations": [
+        "mars#300"
+      ],
+      "passages": {
+        "mars#300": "Mars is the fourth planet from the Sun and is often called the Red Planet because of iron oxide dust on its surface. It has a diameter of 6,779 kilometers and orbits at an average distance of 227.9 million kilometers. A day on Mars lasts about 24.6 hours, and a year lasts 687 Earth days. Mars has two small moons, Phobos and Deimos. The atmosphere is thin and about 95 percent carbon dioxide. Average surface temperature is about minus 63 degrees Celsius. Mars has the largest volcano in the Solar System, Olympus Mons, which rises about 21.9 kilometers. It also has a huge canyon system called Valles Marineris. Evidence suggests that liquid water once flowed on the surface."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The evidence supports past water flow, not current surface water.",
+      "window_context": "whole_passage"
+    }
+  ]
+}

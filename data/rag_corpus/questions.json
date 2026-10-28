@@ -1,0 +1,117 @@
+{
+  "description": "Evaluation questions for the solar system RAG corpus. Relevance is defined at the document level: a retrieved chunk counts as relevant when its doc_id appears in relevant_docs. Unanswerable questions have an empty relevant_docs list.",
+  "questions": [
+    {
+      "id": "q01",
+      "category": "single_fact",
+      "question": "What is the diameter of Jupiter?",
+      "relevant_docs": ["jupiter"],
+      "answerable": true,
+      "notes": "Direct single-document lookup."
+    },
+    {
+      "id": "q02",
+      "category": "single_fact",
+      "question": "How long is a day on Venus?",
+      "relevant_docs": ["venus"],
+      "answerable": true,
+      "notes": "Answer is stated in Earth days."
+    },
+    {
+      "id": "q03",
+      "category": "single_fact",
+      "question": "How many moons does Mars have?",
+      "relevant_docs": ["mars"],
+      "answerable": true,
+      "notes": "Answer is two moons, Phobos and Deimos."
+    },
+    {
+      "id": "q04",
+      "category": "single_fact",
+      "question": "What is the atmosphere of Earth mostly made of?",
+      "relevant_docs": ["earth"],
+      "answerable": true,
+      "notes": "Answer is nitrogen."
+    },
+    {
+      "id": "q05",
+      "category": "single_fact",
+      "question": "What are Saturn's rings made of?",
+      "relevant_docs": ["saturn"],
+      "answerable": true,
+      "notes": "Answer is mostly water ice."
+    },
+    {
+      "id": "q06",
+      "category": "single_fact",
+      "question": "Which planet is closest to the Sun?",
+      "relevant_docs": ["mercury"],
+      "answerable": true,
+      "notes": "Direct single-document lookup."
+    },
+    {
+      "id": "q07",
+      "category": "single_fact",
+      "question": "How many known moons does Saturn have?",
+      "relevant_docs": ["saturn"],
+      "answerable": true,
+      "notes": "Answer is 146."
+    },
+    {
+      "id": "q08",
+      "category": "multi_document",
+      "question": "Which is hotter, Mercury or Venus, and which of them is closer to the Sun?",
+      "relevant_docs": ["mercury", "venus"],
+      "answerable": true,
+      "notes": "Requires facts from two documents."
+    },
+    {
+      "id": "q09",
+      "category": "multi_document",
+      "question": "Which has more moons, Earth or Mars?",
+      "relevant_docs": ["earth", "mars"],
+      "answerable": true,
+      "notes": "Requires comparing two documents."
+    },
+    {
+      "id": "q10",
+      "category": "confusable",
+      "question": "Which planet has the shortest day?",
+      "relevant_docs": ["jupiter"],
+      "answerable": true,
+      "notes": "Contrasts with the longest-day question about Venus."
+    },
+    {
+      "id": "q11",
+      "category": "confusable",
+      "question": "Which planet has the longest day?",
+      "relevant_docs": ["venus"],
+      "answerable": true,
+      "notes": "Contrasts with the shortest-day question about Jupiter."
+    },
+    {
+      "id": "q12",
+      "category": "unanswerable",
+      "question": "What is the surface gravity of Pluto?",
+      "relevant_docs": [],
+      "answerable": false,
+      "notes": "Pluto is not in the corpus."
+    },
+    {
+      "id": "q13",
+      "category": "unanswerable",
+      "question": "Who discovered Neptune's moon Triton?",
+      "relevant_docs": [],
+      "answerable": false,
+      "notes": "Neptune and Triton are not in the corpus."
+    },
+    {
+      "id": "q14",
+      "category": "paraphrase",
+      "question": "Which world has the most natural satellites?",
+      "relevant_docs": ["jupiter"],
+      "answerable": true,
+      "notes": "Expected lexical-retrieval failure: the corpus uses planet and moons, not world and natural satellites."
+    }
+  ]
+}

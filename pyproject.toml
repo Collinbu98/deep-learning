@@ -10,3 +10,8 @@ requires-python = ">=3.12"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=3,<6"]
+llm = ["transformers>=4.37"]
+nli = ["transformers>=4.37"]

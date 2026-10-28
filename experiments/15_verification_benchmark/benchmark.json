@@ -1,0 +1,429 @@
+[
+  {
+    "id": "s1",
+    "claim": "Jupiter has 95 known moons.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement in evidence",
+    "type": "direct"
+  },
+  {
+    "id": "s2",
+    "claim": "Mars has two small moons.",
+    "citations": [
+      "mars#0"
+    ],
+    "passages": {
+      "mars#0": "Mars has two small moons, Phobos and Deimos."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement",
+    "type": "direct"
+  },
+  {
+    "id": "s3",
+    "claim": "Venus has the longest day of any planet.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. Venus therefore has the longest day of any planet."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement",
+    "type": "direct"
+  },
+  {
+    "id": "s4",
+    "claim": "A day on Jupiter lasts only about 9.9 hours.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement",
+    "type": "direct"
+  },
+  {
+    "id": "s5",
+    "claim": "Saturn's rings are made mostly of water ice.",
+    "citations": [
+      "saturn#0"
+    ],
+    "passages": {
+      "saturn#0": "The rings of Saturn are made mostly of water ice, along with some rock and dust."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement",
+    "type": "direct"
+  },
+  {
+    "id": "p1",
+    "claim": "Jupiter rotates once every 9.9 hours.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet."
+    },
+    "expected": "supported",
+    "rationale": "Paraphrase of day length",
+    "type": "paraphrase"
+  },
+  {
+    "id": "p2",
+    "claim": "A single rotation on Venus takes 243 Earth days.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days."
+    },
+    "expected": "supported",
+    "rationale": "Paraphrase",
+    "type": "paraphrase"
+  },
+  {
+    "id": "p3",
+    "claim": "Phobos and Deimos orbit Mars.",
+    "citations": [
+      "mars#0"
+    ],
+    "passages": {
+      "mars#0": "Mars has two small moons, Phobos and Deimos."
+    },
+    "expected": "supported",
+    "rationale": "Paraphrase of fact",
+    "type": "paraphrase"
+  },
+  {
+    "id": "p4",
+    "claim": "The Solar System's largest planet is Jupiter.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System."
+    },
+    "expected": "supported",
+    "rationale": "Paraphrase",
+    "type": "paraphrase"
+  },
+  {
+    "id": "p5",
+    "claim": "Mercury is the closest planet to our star.",
+    "citations": [
+      "mercury#0"
+    ],
+    "passages": {
+      "mercury#0": "Mercury is the closest planet to the Sun."
+    },
+    "expected": "supported",
+    "rationale": "Paraphrase (Sun/star)",
+    "type": "paraphrase"
+  },
+  {
+    "id": "c1",
+    "claim": "Jupiter has 79 known moons.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto."
+    },
+    "expected": "contradicted",
+    "rationale": "Evidence says 95, claim says 79",
+    "type": "contradiction"
+  },
+  {
+    "id": "c2",
+    "claim": "Mars has one moon.",
+    "citations": [
+      "mars#0"
+    ],
+    "passages": {
+      "mars#0": "Mars has two small moons, Phobos and Deimos."
+    },
+    "expected": "contradicted",
+    "rationale": "Evidence says two, claim says one",
+    "type": "contradiction"
+  },
+  {
+    "id": "c3",
+    "claim": "Venus has the shortest day of any planet.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "A single day on Venus lasts about 243 Earth days... Venus therefore has the longest day of any planet."
+    },
+    "expected": "contradicted",
+    "rationale": "Opposite of evidence",
+    "type": "contradiction"
+  },
+  {
+    "id": "c4",
+    "claim": "Mercury is farther from the Sun than Venus.",
+    "citations": [
+      "mercury#0"
+    ],
+    "passages": {
+      "mercury#0": "Mercury is the closest planet to the Sun."
+    },
+    "expected": "contradicted",
+    "rationale": "Opposite position",
+    "type": "contradiction"
+  },
+  {
+    "id": "c5",
+    "claim": "Saturn's rings are made of solid rock.",
+    "citations": [
+      "saturn#0"
+    ],
+    "passages": {
+      "saturn#0": "The rings of Saturn are made mostly of water ice, along with some rock and dust."
+    },
+    "expected": "contradicted",
+    "rationale": "Different material",
+    "type": "contradiction"
+  },
+  {
+    "id": "i1",
+    "claim": "Jupiter has 95 known moons.",
+    "citations": [
+      "mars#0"
+    ],
+    "passages": {
+      "mars#0": "Mars has two small moons, Phobos and Deimos."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Cited mars passage doesn't mention Jupiter moons",
+    "type": "irrelevant_citation"
+  },
+  {
+    "id": "i2",
+    "claim": "Venus is the hottest planet.",
+    "citations": [
+      "mercury#0"
+    ],
+    "passages": {
+      "mercury#0": "Mercury spins slowly... temperatures swing from about minus 173 degrees Celsius at night to 427 degrees Celsius during the day."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Mercury passage doesn't say Venus is hottest",
+    "type": "irrelevant_citation"
+  },
+  {
+    "id": "i3",
+    "claim": "Earth has liquid water on its surface.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "Surface pressure is about 92 times the pressure on Earth. A runaway greenhouse effect makes Venus the hottest planet."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Venus passage irrelevant to Earth water",
+    "type": "irrelevant_citation"
+  },
+  {
+    "id": "i4",
+    "claim": "Saturn has 146 known moons.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter has 95 known moons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Wrong planet",
+    "type": "irrelevant_citation"
+  },
+  {
+    "id": "inv1",
+    "claim": "Jupiter has moons.",
+    "citations": [
+      "fake#99"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter has 95 known moons."
+    },
+    "expected": "invalid_citation",
+    "rationale": "Non-existent citation",
+    "type": "invalid_citation"
+  },
+  {
+    "id": "inv2",
+    "claim": "Mars is red.",
+    "citations": [
+      "pluto#0"
+    ],
+    "passages": {
+      "mars#0": "Mars is the fourth planet from the Sun and is often called the Red Planet."
+    },
+    "expected": "invalid_citation",
+    "rationale": "Non-existent citation",
+    "type": "invalid_citation"
+  },
+  {
+    "id": "inv3",
+    "claim": "Venus is hot.",
+    "citations": [],
+    "passages": {
+      "venus#0": "Venus is the hottest planet."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "No citations",
+    "type": "invalid_citation"
+  },
+  {
+    "id": "h1",
+    "claim": "Jupiter is closer to the Sun than Earth.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "High overlap (Jupiter, Sun) but wrong claim",
+    "type": "high_overlap_wrong"
+  },
+  {
+    "id": "h2",
+    "claim": "Venus has a solid rocky surface like Mercury.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "Venus is the second planet from the Sun and is similar in size to Earth."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Overlaps but doesn't confirm rocky surface claim",
+    "type": "high_overlap_wrong"
+  },
+  {
+    "id": "h3",
+    "claim": "Mars has a thick atmosphere.",
+    "citations": [
+      "mars#0"
+    ],
+    "passages": {
+      "mars#0": "The atmosphere is thin and about 95 percent carbon dioxide."
+    },
+    "expected": "contradicted",
+    "rationale": "Evidence says thin, claim says thick",
+    "type": "high_overlap_wrong"
+  },
+  {
+    "id": "n1",
+    "claim": "Mercury has no moons.",
+    "citations": [
+      "mercury#0"
+    ],
+    "passages": {
+      "mercury#0": "Mercury has no moons."
+    },
+    "expected": "supported",
+    "rationale": "Negation supported",
+    "type": "negation"
+  },
+  {
+    "id": "n2",
+    "claim": "Venus has moons.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "Venus has no moons."
+    },
+    "expected": "contradicted",
+    "rationale": "Negation contradiction",
+    "type": "negation"
+  },
+  {
+    "id": "num1",
+    "claim": "Earth's diameter is 12,742 kilometers.",
+    "citations": [
+      "earth#0"
+    ],
+    "passages": {
+      "earth#0": "Earth is the third planet from the Sun and the only planet known to support life. It has a diameter of 12,742 kilometers and orbits at an average distance of 149.6 million kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Number match",
+    "type": "numbers"
+  },
+  {
+    "id": "num2",
+    "claim": "Jupiter's diameter is 50,000 kilometers.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers."
+    },
+    "expected": "contradicted",
+    "rationale": "Wrong number",
+    "type": "numbers"
+  },
+  {
+    "id": "comp1",
+    "claim": "Jupiter is more massive than all other planets combined.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter is more massive than all the other planets combined, at about 2.5 times their total mass."
+    },
+    "expected": "supported",
+    "rationale": "Comparison supported",
+    "type": "comparison"
+  },
+  {
+    "id": "comp2",
+    "claim": "Earth is larger than Jupiter.",
+    "citations": [
+      "earth#0"
+    ],
+    "passages": {
+      "earth#0": "Earth is the third planet from the Sun and the only planet known to support life. It has a diameter of 12,742 kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Earth passage doesn't mention Jupiter for comparison",
+    "type": "comparison"
+  },
+  {
+    "id": "ins1",
+    "claim": "The Great Red Spot has been observed for 300 years.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Its atmosphere features the Great Red Spot, a giant storm larger than Earth."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Not stated in passage",
+    "type": "insufficient"
+  },
+  {
+    "id": "ins2",
+    "claim": "Titan has liquid water oceans.",
+    "citations": [
+      "saturn#0"
+    ],
+    "passages": {
+      "saturn#0": "Its largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane."
+    },
+    "expected": "contradicted",
+    "rationale": "Says methane/ethane, not water",
+    "type": "insufficient"
+  }
+]

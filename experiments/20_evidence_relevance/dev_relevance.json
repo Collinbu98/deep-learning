@@ -1,0 +1,84 @@
+{
+  "name": "Experiment 20 relevance-focused development extension",
+  "source": "data/rag_corpus",
+  "notes": "Additional cases were written after Experiment 19 but before evaluating the Experiment 20 policy. Labels and rationales come from the corpus, not from verifier output. These cases are separate from the fixed Experiment 15 benchmark and use 200-series source IDs.",
+  "cases": [
+    {
+      "id": "dev_r1",
+      "claim": "Saturn has 95 known moons.",
+      "citations": ["jupiter#200"],
+      "passages": {
+        "jupiter#200": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The evidence is about Jupiter. Sharing the number 95 and the moon-count predicate does not make it evidence about Saturn.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_r2",
+      "claim": "Earth has the longest day of any planet.",
+      "citations": ["venus#200"],
+      "passages": {
+        "venus#200": "A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. Venus therefore has the longest day of any planet."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage establishes Venus's day length, not Earth's. The matching predicate is irrelevant to the claimed subject.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_r3",
+      "claim": "Jupiter has 79 known moons.",
+      "citations": ["jupiter#201"],
+      "passages": {
+        "jupiter#201": "It has 95 known moons."
+      },
+      "expected": "contradicted",
+      "rationale": "The cited source document is Jupiter and the pronoun refers to Jupiter; 95 conflicts with 79. A relevance check must use source identity, not only repeated entity words.",
+      "type": "contradiction"
+    },
+    {
+      "id": "dev_r4",
+      "claim": "Mercury has a subsurface ocean.",
+      "citations": ["mars#200"],
+      "passages": {
+        "mars#200": "Evidence suggests that liquid water once flowed on the surface."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage concerns Mars and surface water in the past, not Mercury or a subsurface ocean.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_r5",
+      "claim": "Mars has liquid water on its surface today.",
+      "citations": ["mars#201"],
+      "passages": {
+        "mars#201": "Evidence suggests that liquid water once flowed on the surface."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The evidence is relevant to Mars but only supports past water flow; it does not establish present-day liquid water.",
+      "type": "insufficient"
+    },
+    {
+      "id": "dev_r6",
+      "claim": "A day on Jupiter is shorter than a day on any other planet.",
+      "citations": ["jupiter#202"],
+      "passages": {
+        "jupiter#202": "A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet."
+      },
+      "expected": "supported",
+      "rationale": "The passage directly supports the comparison; the claim is a paraphrase rather than a contradiction.",
+      "type": "paraphrase"
+    },
+    {
+      "id": "dev_r7",
+      "claim": "Earth has a thick atmosphere of carbon dioxide.",
+      "citations": ["venus#201"],
+      "passages": {
+        "venus#201": "Surface pressure is about 92 times the pressure on Earth. A runaway greenhouse effect makes Venus the hottest planet."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "Earth appears only in a pressure comparison. The passage does not describe Earth's atmosphere, so incidental entity overlap is not sufficient relevance.",
+      "type": "irrelevant_citation"
+    }
+  ]
+}

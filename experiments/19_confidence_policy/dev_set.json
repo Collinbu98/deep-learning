@@ -1,0 +1,291 @@
+{
+  "name": "Experiment 19 independent development set",
+  "source": "data/rag_corpus",
+  "notes": "Claims, expected labels, and rationales were written from the corpus before running any verifier on this set. Cases are separate from the fixed Experiment 15 benchmark. Source IDs use 100-series chunk indices to avoid colliding with benchmark IDs.",
+  "cases": [
+    {
+      "id": "dev_d1",
+      "claim": "Earth has one natural moon.",
+      "citations": ["earth#100"],
+      "passages": {
+        "earth#100": "Earth rotates once every 23.9 hours and completes one orbit in 365.25 days. It has one natural moon. About 71 percent of the surface is covered by oceans."
+      },
+      "expected": "supported",
+      "rationale": "The corpus explicitly states that Earth has one natural moon.",
+      "type": "direct"
+    },
+    {
+      "id": "dev_d2",
+      "claim": "Olympus Mons is a volcano on Mars.",
+      "citations": ["mars#100"],
+      "passages": {
+        "mars#100": "Mars has the largest volcano in the Solar System, Olympus Mons, which rises about 21.9 kilometers. It also has a huge canyon system called Valles Marineris."
+      },
+      "expected": "supported",
+      "rationale": "Olympus Mons is identified as a volcano belonging to Mars.",
+      "type": "direct"
+    },
+    {
+      "id": "dev_d3",
+      "claim": "Mercury's surface is heavily cratered.",
+      "citations": ["mercury#100"],
+      "passages": {
+        "mercury#100": "Mercury has no moons. Its surface is heavily cratered and resembles the Moon. The largest impact feature is the Caloris Basin."
+      },
+      "expected": "supported",
+      "rationale": "The passage directly says Mercury's surface is heavily cratered.",
+      "type": "direct"
+    },
+    {
+      "id": "dev_d4",
+      "claim": "Saturn is the least dense planet.",
+      "citations": ["saturn#100"],
+      "passages": {
+        "saturn#100": "Saturn rotates quickly. A day on Saturn lasts about 10.7 hours, and a year lasts about 29.4 Earth years. Saturn is the least dense planet, with an average density of 0.687 grams per cubic centimeter."
+      },
+      "expected": "supported",
+      "rationale": "The corpus directly calls Saturn the least dense planet.",
+      "type": "direct"
+    },
+    {
+      "id": "dev_p1",
+      "claim": "The Sun contains almost all of the mass in the Solar System.",
+      "citations": ["00_overview#100"],
+      "passages": {
+        "00_overview#100": "The Sun is a star at the center of the system. It contains about 99.8 percent of all the mass in the Solar System, and its gravitational pull keeps the planets in orbit."
+      },
+      "expected": "supported",
+      "rationale": "About 99.8 percent is a paraphrase of almost all of the mass.",
+      "type": "paraphrase"
+    },
+    {
+      "id": "dev_p2",
+      "claim": "Sunlight takes about eight minutes to reach Earth.",
+      "citations": ["00_overview#101"],
+      "passages": {
+        "00_overview#101": "Sunlight takes about 8 minutes and 20 seconds to travel from the Sun to Earth."
+      },
+      "expected": "supported",
+      "rationale": "Eight minutes and 20 seconds is approximately eight minutes.",
+      "type": "paraphrase"
+    },
+    {
+      "id": "dev_p3",
+      "claim": "Venus rotates in the opposite direction to most planets.",
+      "citations": ["venus#100"],
+      "passages": {
+        "venus#100": "Venus rotates very slowly, and its rotation is retrograde, meaning it turns in the opposite direction to most planets."
+      },
+      "expected": "supported",
+      "rationale": "Retrograde rotation is paraphrased as rotating opposite to most planets.",
+      "type": "paraphrase"
+    },
+    {
+      "id": "dev_p4",
+      "claim": "Mars has a huge canyon system called Valles Marineris.",
+      "citations": ["mars#101"],
+      "passages": {
+        "mars#101": "It also has a huge canyon system called Valles Marineris. Evidence suggests that liquid water once flowed on the surface."
+      },
+      "expected": "supported",
+      "rationale": "The passage states the same fact with little rewording.",
+      "type": "paraphrase"
+    },
+    {
+      "id": "dev_c1",
+      "claim": "Earth's diameter is about 15,000 kilometers.",
+      "citations": ["earth#101"],
+      "passages": {
+        "earth#101": "It has a diameter of 12,742 kilometers and orbits at an average distance of 149.6 million kilometers."
+      },
+      "expected": "contradicted",
+      "rationale": "12,742 kilometers conflicts with the claimed approximate 15,000 kilometers.",
+      "type": "contradiction"
+    },
+    {
+      "id": "dev_c2",
+      "claim": "Saturn has 95 known moons.",
+      "citations": ["saturn#101"],
+      "passages": {
+        "saturn#101": "The rings of Saturn are made mostly of water ice, along with some rock and dust. Saturn has 146 known moons."
+      },
+      "expected": "contradicted",
+      "rationale": "The stated moon count is 146, not 95.",
+      "type": "contradiction"
+    },
+    {
+      "id": "dev_c3",
+      "claim": "Earth has no natural moon.",
+      "citations": ["earth#102"],
+      "passages": {
+        "earth#102": "Earth rotates once every 23.9 hours and completes one orbit in 365.25 days. It has one natural moon."
+      },
+      "expected": "contradicted",
+      "rationale": "The evidence says Earth has one natural moon, contradicting the negated claim.",
+      "type": "contradiction"
+    },
+    {
+      "id": "dev_c4",
+      "claim": "Venus has moons.",
+      "citations": ["venus#101"],
+      "passages": {
+        "venus#101": "A runaway greenhouse effect makes Venus the hottest planet, with a surface temperature of about 465 degrees Celsius. Venus has no moons."
+      },
+      "expected": "contradicted",
+      "rationale": "The evidence explicitly states that Venus has no moons.",
+      "type": "contradiction"
+    },
+    {
+      "id": "dev_i1",
+      "claim": "Earth is the hottest planet.",
+      "citations": ["mercury#101"],
+      "passages": {
+        "mercury#101": "Because the planet has almost no atmosphere, temperatures swing from about minus 173 degrees Celsius at night to 427 degrees Celsius during the day."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage discusses Mercury's temperature, not Earth's, so it cannot verify the claim about Earth.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_i2",
+      "claim": "Saturn has liquid water oceans.",
+      "citations": ["jupiter#100"],
+      "passages": {
+        "jupiter#100": "Its atmosphere features the Great Red Spot, a giant storm larger than Earth. Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The cited passage is about Jupiter's moons and storm, not Saturn or its oceans.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_i3",
+      "claim": "Mars has bright rings.",
+      "citations": ["saturn#102"],
+      "passages": {
+        "saturn#102": "The rings of Saturn are made mostly of water ice, along with some rock and dust. Saturn has 146 known moons."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The evidence describes Saturn's rings and moons, not whether Mars has rings.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_i4",
+      "claim": "Mercury has a thick atmosphere.",
+      "citations": ["venus#102"],
+      "passages": {
+        "venus#102": "The atmosphere of Venus is about 96 percent carbon dioxide, with thick clouds of sulfuric acid. Surface pressure is about 92 times the pressure on Earth."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage gives Venus's atmosphere, not Mercury's.",
+      "type": "irrelevant_citation"
+    },
+    {
+      "id": "dev_n1",
+      "claim": "Jupiter's Great Red Spot has lasted exactly 400 years.",
+      "citations": ["jupiter#101"],
+      "passages": {
+        "jupiter#101": "Its atmosphere features the Great Red Spot, a giant storm larger than Earth. Jupiter has 95 known moons."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage identifies the storm but gives no duration for it.",
+      "type": "insufficient"
+    },
+    {
+      "id": "dev_n2",
+      "claim": "Titan has a subsurface ocean.",
+      "citations": ["saturn#103"],
+      "passages": {
+        "saturn#103": "Saturn has 146 known moons. Its largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "Titan's atmosphere and surface lakes are mentioned, but not a subsurface ocean.",
+      "type": "insufficient"
+    },
+    {
+      "id": "dev_n3",
+      "claim": "Venus has more volcanoes than Earth.",
+      "citations": ["venus#103"],
+      "passages": {
+        "venus#103": "A runaway greenhouse effect makes Venus the hottest planet, with a surface temperature of about 465 degrees Celsius. Venus has no moons."
+      },
+      "expected": "insufficient_evidence",
+      "rationale": "The passage does not mention volcanoes on Venus or Earth.",
+      "type": "insufficient"
+    },
+    {
+      "id": "dev_w1",
+      "claim": "Jupiter has the shortest day of any planet.",
+      "citations": ["jupiter#102"],
+      "passages": {
+        "jupiter#102": "Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet. One year on Jupiter lasts about 11.86 Earth years."
+      },
+      "expected": "supported",
+      "rationale": "One window directly states the claim; neighboring sentences are contextual and need not entail it.",
+      "type": "window_conflict"
+    },
+    {
+      "id": "dev_w2",
+      "claim": "Venus has the longest day of any planet.",
+      "citations": ["venus#104"],
+      "passages": {
+        "venus#104": "Venus rotates very slowly, and its rotation is retrograde. A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. Venus therefore has the longest day of any planet."
+      },
+      "expected": "supported",
+      "rationale": "The final sentence directly states the claim; the other windows add context.",
+      "type": "window_conflict"
+    },
+    {
+      "id": "dev_w3",
+      "claim": "Earth has two moons.",
+      "citations": ["earth#103"],
+      "passages": {
+        "earth#103": "Earth rotates once every 23.9 hours and completes one orbit in 365.25 days. It has one natural moon. About 71 percent of the surface is covered by oceans."
+      },
+      "expected": "contradicted",
+      "rationale": "The one-moon statement contradicts the claim; surrounding neutral sentences do not rescue it.",
+      "type": "window_conflict"
+    },
+    {
+      "id": "dev_w4",
+      "claim": "Earth's atmosphere is mostly oxygen.",
+      "citations": ["earth#104"],
+      "passages": {
+        "earth#104": "The atmosphere of Earth is mostly nitrogen, at about 78 percent, with about 21 percent oxygen and small amounts of other gases. The average surface temperature is roughly 15 degrees Celsius."
+      },
+      "expected": "contradicted",
+      "rationale": "The atmosphere is mostly nitrogen, which conflicts with the claim that it is mostly oxygen.",
+      "type": "window_conflict"
+    },
+    {
+      "id": "dev_x1",
+      "claim": "Mars is often called the Red Planet.",
+      "citations": ["pluto#100"],
+      "passages": {
+        "mars#102": "Mars is the fourth planet from the Sun and is often called the Red Planet because of iron oxide dust on its surface."
+      },
+      "expected": "invalid_citation",
+      "rationale": "The citation points to an unknown source document, so the evidence cannot be accepted regardless of its text.",
+      "type": "invalid_citation"
+    },
+    {
+      "id": "dev_x2",
+      "claim": "Mercury is the closest planet to the Sun.",
+      "citations": ["sol#100"],
+      "passages": {
+        "mercury#102": "Mercury is the closest planet to the Sun. It has a diameter of 4,879 kilometers."
+      },
+      "expected": "invalid_citation",
+      "rationale": "The cited source ID is not in the corpus, so the claim is rejected before NLI.",
+      "type": "invalid_citation"
+    },
+    {
+      "id": "dev_nc1",
+      "claim": "Saturn's rings are made mostly of water ice.",
+      "citations": [],
+      "passages": {},
+      "expected": "insufficient_evidence",
+      "rationale": "There is no citation to verify the claim against.",
+      "type": "missing_citation"
+    }
+  ]
+}

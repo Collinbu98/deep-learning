@@ -1,0 +1,90 @@
+{
+  "description": "Small answer key for Experiment 13. required_fact_groups are alternative surface forms; every group must appear. required_doc_ids must be cited. manual_review entries are excluded from automatic accuracy because surface matching cannot verify the relation.",
+  "answers": [
+    {
+      "id": "q01",
+      "required_fact_groups": [["139,820", "139820"]],
+      "required_doc_ids": ["jupiter"],
+      "notes": "Jupiter diameter."
+    },
+    {
+      "id": "q02",
+      "required_fact_groups": [["243"]],
+      "required_doc_ids": ["venus"],
+      "notes": "Venus day length in Earth days."
+    },
+    {
+      "id": "q03",
+      "required_fact_groups": [["two", "2"], ["phobos"], ["deimos"]],
+      "required_doc_ids": ["mars"],
+      "notes": "Mars has two moons, Phobos and Deimos."
+    },
+    {
+      "id": "q04",
+      "required_fact_groups": [["nitrogen"]],
+      "required_doc_ids": ["earth"],
+      "notes": "Earth's atmosphere is mostly nitrogen."
+    },
+    {
+      "id": "q05",
+      "required_fact_groups": [["water ice", "water-ice", "ice"]],
+      "required_doc_ids": ["saturn"],
+      "notes": "Saturn's rings are mostly water ice."
+    },
+    {
+      "id": "q06",
+      "required_fact_groups": [["mercury"]],
+      "required_doc_ids": ["mercury"],
+      "notes": "Mercury is closest to the Sun."
+    },
+    {
+      "id": "q07",
+      "required_fact_groups": [["146"]],
+      "required_doc_ids": ["saturn"],
+      "notes": "Saturn has 146 known moons."
+    },
+    {
+      "id": "q08",
+      "required_fact_groups": [
+        ["venus is hotter", "hotter than mercury", "venus is the hotter", "venus, which is hotter", "venus is the hottest"],
+        ["mercury is closer", "mercury is closest", "mercury, which is closer", "closer to the sun is mercury"]
+      ],
+      "required_doc_ids": ["mercury", "venus"],
+      "manual_review": true,
+      "notes": "Two related comparisons; keyword overlap cannot reliably detect a swapped relation."
+    },
+    {
+      "id": "q09",
+      "required_fact_groups": [["mars"], ["earth"], ["two", "2"], ["one", "1"]],
+      "required_doc_ids": ["earth", "mars"],
+      "manual_review": true,
+      "notes": "Comparison; mention of both counts does not prove the direction of 'more'."
+    },
+    {
+      "id": "q10",
+      "required_fact_groups": [["jupiter"]],
+      "required_doc_ids": ["jupiter"],
+      "notes": "Jupiter has the shortest day."
+    },
+    {
+      "id": "q11",
+      "required_fact_groups": [["venus"]],
+      "required_doc_ids": ["venus"],
+      "notes": "Venus has the longest day."
+    },
+    {
+      "id": "q12",
+      "notes": "Unanswerable: Pluto is absent from the corpus."
+    },
+    {
+      "id": "q13",
+      "notes": "Unanswerable: Neptune and Triton are absent from the corpus."
+    },
+    {
+      "id": "q14",
+      "required_fact_groups": [["jupiter"]],
+      "required_doc_ids": ["jupiter"],
+      "notes": "Paraphrase; Jupiter has the most known moons."
+    }
+  ]
+}

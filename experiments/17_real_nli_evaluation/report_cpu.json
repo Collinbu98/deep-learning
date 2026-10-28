@@ -1,0 +1,2811 @@
+{
+  "experiment": "17_real_nli_evaluation",
+  "status": "completed",
+  "benchmark": {
+    "path": "/home/collin/deep-learning/experiments/15_verification_benchmark/benchmark.json",
+    "sha256": "4856be06e452fc78d238a58ee75aebe037d103bd77253d34f5a1b9037475007d",
+    "cases": 33,
+    "labels_unchanged": true
+  },
+  "environment": {
+    "packages": {
+      "torch": "2.9.1+rocm6.4",
+      "transformers": "5.20.2",
+      "sentence-transformers": "5.7.0",
+      "huggingface_hub": "2.2.0",
+      "tokenizers": "0.23.3",
+      "numpy": "2.5.2",
+      "sentencepiece": null,
+      "protobuf": null
+    },
+    "accelerator": {
+      "torch_cuda_available": true,
+      "torch_cuda_device_count": 2,
+      "torch_cuda_devices": [
+        "AMD Radeon Graphics",
+        "AMD Ryzen 5 7600X3D 6-Core Processor"
+      ],
+      "rocm_version": "6.4.43484-123eb5128"
+    }
+  },
+  "lexical": {
+    "metrics": {
+      "total": 33,
+      "accuracy": 0.5454545454545454,
+      "macro_f1": 0.5278846153846154,
+      "false_supported_rate": 0.7,
+      "confusion_matrix": {
+        "supported": {
+          "supported": 13
+        },
+        "contradicted": {
+          "supported": 8,
+          "insufficient_evidence": 1
+        },
+        "insufficient_evidence": {
+          "supported": 6,
+          "insufficient_evidence": 3
+        },
+        "invalid_citation": {
+          "invalid_citation": 2
+        }
+      },
+      "per_class": {
+        "supported": {
+          "precision": 0.48148148148148145,
+          "recall": 1.0,
+          "f1": 0.65,
+          "support": 13
+        },
+        "contradicted": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9
+        },
+        "insufficient_evidence": {
+          "precision": 0.75,
+          "recall": 0.3333333333333333,
+          "f1": 0.46153846153846156,
+          "support": 9
+        },
+        "invalid_citation": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        }
+      }
+    },
+    "by_type": {
+      "comparison": {
+        "total": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "contradiction": {
+        "total": 5,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "direct": {
+        "total": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "high_overlap_wrong": {
+        "total": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      },
+      "insufficient": {
+        "total": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "invalid_citation": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "irrelevant_citation": {
+        "total": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "negation": {
+        "total": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "numbers": {
+        "total": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "paraphrase": {
+        "total": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      }
+    },
+    "audit": {
+      "total": 33,
+      "correct": 18,
+      "accuracy": 0.5454545454545454,
+      "confusion_diagonal": 18,
+      "needed_for_0_636": 21,
+      "note": "Experiment 15's hand-written final report printed accuracy 0.636, but its own confusion matrix already contained only 18/33 correct (0.545). The 0.636 figure would require 21/33 correct and is not reproduced by any stored result or by the current shared evaluator. The discrepancy is a reporting error, not a label-mapping, invalid-citation, or insufficient-evidence convention change."
+    },
+    "results": [
+      {
+        "id": "s1",
+        "type": "direct",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Direct statement in evidence"
+      },
+      {
+        "id": "s2",
+        "type": "direct",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Direct statement"
+      },
+      {
+        "id": "s3",
+        "type": "direct",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Direct statement"
+      },
+      {
+        "id": "s4",
+        "type": "direct",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Direct statement"
+      },
+      {
+        "id": "s5",
+        "type": "direct",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.89).",
+        "rationale": "Direct statement"
+      },
+      {
+        "id": "p1",
+        "type": "paraphrase",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.50).",
+        "rationale": "Paraphrase of day length"
+      },
+      {
+        "id": "p2",
+        "type": "paraphrase",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.78).",
+        "rationale": "Paraphrase"
+      },
+      {
+        "id": "p3",
+        "type": "paraphrase",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.80).",
+        "rationale": "Paraphrase of fact"
+      },
+      {
+        "id": "p4",
+        "type": "paraphrase",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.88).",
+        "rationale": "Paraphrase"
+      },
+      {
+        "id": "p5",
+        "type": "paraphrase",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.75).",
+        "rationale": "Paraphrase (Sun/star)"
+      },
+      {
+        "id": "c1",
+        "type": "contradiction",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.80).",
+        "rationale": "Evidence says 95, claim says 79"
+      },
+      {
+        "id": "c2",
+        "type": "contradiction",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.50).",
+        "rationale": "Evidence says two, claim says one"
+      },
+      {
+        "id": "c3",
+        "type": "contradiction",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.88).",
+        "rationale": "Opposite of evidence"
+      },
+      {
+        "id": "c4",
+        "type": "contradiction",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.50).",
+        "rationale": "Opposite position"
+      },
+      {
+        "id": "c5",
+        "type": "contradiction",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.75).",
+        "rationale": "Different material"
+      },
+      {
+        "id": "i1",
+        "type": "irrelevant_citation",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.40).",
+        "rationale": "Cited mars passage doesn't mention Jupiter moons"
+      },
+      {
+        "id": "i2",
+        "type": "irrelevant_citation",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "Some overlap (0.20) but insufficient for support.",
+        "rationale": "Mercury passage doesn't say Venus is hottest"
+      },
+      {
+        "id": "i3",
+        "type": "irrelevant_citation",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.43).",
+        "rationale": "Venus passage irrelevant to Earth water"
+      },
+      {
+        "id": "i4",
+        "type": "irrelevant_citation",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.60).",
+        "rationale": "Wrong planet"
+      },
+      {
+        "id": "inv1",
+        "type": "invalid_citation",
+        "expected": "invalid_citation",
+        "predicted": "invalid_citation",
+        "correct": true,
+        "explanation": "Invalid/missing citation IDs: ['fake#99']",
+        "rationale": "Non-existent citation"
+      },
+      {
+        "id": "inv2",
+        "type": "invalid_citation",
+        "expected": "invalid_citation",
+        "predicted": "invalid_citation",
+        "correct": true,
+        "explanation": "Invalid/missing citation IDs: ['pluto#0']",
+        "rationale": "Non-existent citation"
+      },
+      {
+        "id": "inv3",
+        "type": "invalid_citation",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "No citations provided.",
+        "rationale": "No citations"
+      },
+      {
+        "id": "h1",
+        "type": "high_overlap_wrong",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.50).",
+        "rationale": "High overlap (Jupiter, Sun) but wrong claim"
+      },
+      {
+        "id": "h2",
+        "type": "high_overlap_wrong",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "Some overlap (0.12) but insufficient for support.",
+        "rationale": "Overlaps but doesn't confirm rocky surface claim"
+      },
+      {
+        "id": "h3",
+        "type": "high_overlap_wrong",
+        "expected": "contradicted",
+        "predicted": "insufficient_evidence",
+        "correct": false,
+        "explanation": "Some overlap (0.20) but insufficient for support.",
+        "rationale": "Evidence says thin, claim says thick"
+      },
+      {
+        "id": "n1",
+        "type": "negation",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Negation supported"
+      },
+      {
+        "id": "n2",
+        "type": "negation",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Negation contradiction"
+      },
+      {
+        "id": "num1",
+        "type": "numbers",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (0.83).",
+        "rationale": "Number match"
+      },
+      {
+        "id": "num2",
+        "type": "numbers",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.33).",
+        "rationale": "Wrong number"
+      },
+      {
+        "id": "comp1",
+        "type": "comparison",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "Lexical overlap with cited passages (1.00).",
+        "rationale": "Comparison supported"
+      },
+      {
+        "id": "comp2",
+        "type": "comparison",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.40).",
+        "rationale": "Earth passage doesn't mention Jupiter for comparison"
+      },
+      {
+        "id": "ins1",
+        "type": "insufficient",
+        "expected": "insufficient_evidence",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.40).",
+        "rationale": "Not stated in passage"
+      },
+      {
+        "id": "ins2",
+        "type": "insufficient",
+        "expected": "contradicted",
+        "predicted": "supported",
+        "correct": false,
+        "explanation": "Lexical overlap with cited passages (0.60).",
+        "rationale": "Says methane/ethane, not water"
+      }
+    ]
+  },
+  "model": {
+    "repository": "cross-encoder/nli-MiniLM2-L6-H768",
+    "snapshot_path": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+    "revision": "b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+    "model_name": "nreimers/MiniLMv2-L6-H768-distilled-from-RoBERTa-Large",
+    "model_type": "roberta",
+    "architectures": [
+      "RobertaForSequenceClassification"
+    ],
+    "id2label": {
+      "0": "contradiction",
+      "1": "entailment",
+      "2": "neutral"
+    },
+    "max_position_embeddings": 514,
+    "license": "apache-2.0",
+    "weights_file": "model.safetensors",
+    "size_bytes": 331114396,
+    "expected_license": "apache-2.0",
+    "backend": {
+      "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+      "device": "cpu",
+      "dtype": "float32",
+      "local_files_only": true,
+      "id2label": {
+        "0": "contradiction",
+        "1": "entailment",
+        "2": "neutral"
+      },
+      "max_length": 512,
+      "parameter_count": 82120707,
+      "load_seconds": 0.3086945740014926,
+      "aggregation": "conservative"
+    },
+    "load_attempts": [
+      {
+        "device": "cpu",
+        "status": "loaded",
+        "error": null,
+        "load_seconds": 1.966527317001237
+      }
+    ],
+    "cpu_fallback": false
+  },
+  "probes": {
+    "passed": true,
+    "results": [
+      {
+        "id": "probe_entailment",
+        "premise": "Jupiter has 95 known moons.",
+        "hypothesis": "Jupiter has 95 known moons.",
+        "expected_label": "entailment",
+        "expected_status": "supported",
+        "predicted_label": "entailment",
+        "predicted_status": "supported",
+        "passed": true,
+        "scores": {
+          "entailment": 0.9936941671411945,
+          "contradiction": 0.0010327584237192495,
+          "neutral": 0.005273074435086257
+        },
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "scores": {
+              "contradiction": 0.0010327584237192495,
+              "entailment": 0.9936941671411945,
+              "neutral": 0.005273074435086257
+            },
+            "raw_scores": [
+              -2.989114284515381,
+              3.88008189201355,
+              -1.3587340116500854
+            ]
+          }
+        ],
+        "error": null
+      },
+      {
+        "id": "probe_contradiction",
+        "premise": "Mars has two small moons, Phobos and Deimos.",
+        "hypothesis": "Mars has one moon.",
+        "expected_label": "contradiction",
+        "expected_status": "contradicted",
+        "predicted_label": "contradiction",
+        "predicted_status": "contradicted",
+        "passed": true,
+        "scores": {
+          "entailment": 0.0005188856084272799,
+          "contradiction": 0.9973895613185041,
+          "neutral": 0.0020915530730686955
+        },
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "scores": {
+              "contradiction": 0.9973895613185041,
+              "entailment": 0.0005188856084272799,
+              "neutral": 0.0020915530730686955
+            },
+            "raw_scores": [
+              4.667942047119141,
+              -2.8932712078094482,
+              -1.4992924928665161
+            ]
+          }
+        ],
+        "error": null
+      },
+      {
+        "id": "probe_neutral",
+        "premise": "Jupiter has 95 known moons.",
+        "hypothesis": "The Great Red Spot is a storm on Jupiter.",
+        "expected_label": "neutral",
+        "expected_status": "insufficient_evidence",
+        "predicted_label": "neutral",
+        "predicted_status": "insufficient_evidence",
+        "passed": true,
+        "scores": {
+          "entailment": 0.002117472713607721,
+          "contradiction": 0.16361389715257335,
+          "neutral": 0.834268630133819
+        },
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "scores": {
+              "contradiction": 0.16361389715257335,
+              "entailment": 0.002117472713607721,
+              "neutral": 0.834268630133819
+            },
+            "raw_scores": [
+              0.9678658246994019,
+              -3.379420280456543,
+              2.596911907196045
+            ]
+          }
+        ],
+        "error": null
+      }
+    ]
+  },
+  "nli": {
+    "metrics": {
+      "total": 33,
+      "accuracy": 0.8484848484848485,
+      "macro_f1": 0.8699229691876751,
+      "false_supported_rate": 0.0,
+      "confusion_matrix": {
+        "supported": {
+          "supported": 11,
+          "insufficient_evidence": 2
+        },
+        "contradicted": {
+          "contradicted": 9
+        },
+        "insufficient_evidence": {
+          "contradicted": 3,
+          "insufficient_evidence": 6
+        },
+        "invalid_citation": {
+          "invalid_citation": 2
+        }
+      },
+      "per_class": {
+        "supported": {
+          "precision": 1.0,
+          "recall": 0.8461538461538461,
+          "f1": 0.9166666666666666,
+          "support": 13
+        },
+        "contradicted": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571,
+          "support": 9
+        },
+        "insufficient_evidence": {
+          "precision": 0.75,
+          "recall": 0.6666666666666666,
+          "f1": 0.7058823529411765,
+          "support": 9
+        },
+        "invalid_citation": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        }
+      }
+    },
+    "by_type": {
+      "comparison": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "contradiction": {
+        "total": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "direct": {
+        "total": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "high_overlap_wrong": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "insufficient": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "invalid_citation": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "irrelevant_citation": {
+        "total": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "negation": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "numbers": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "paraphrase": {
+        "total": 5,
+        "correct": 3,
+        "accuracy": 0.6
+      }
+    },
+    "focus_categories": {
+      "contradiction": {
+        "total": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "numbers": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "negation": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "irrelevant_citation": {
+        "total": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "high_overlap_wrong": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "paraphrase": {
+        "total": 5,
+        "correct": 3,
+        "accuracy": 0.6
+      },
+      "insufficient": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      }
+    },
+    "error_count": 0,
+    "results": [
+      {
+        "id": "s1",
+        "type": "direct",
+        "claim": "Jupiter has 95 known moons.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Direct statement in evidence",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9939248626676327,
+          "contradiction": 0.0009925794513025636,
+          "neutral": 0.005082557881064674
+        },
+        "decision_confidence": 0.9939248626676327,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0009925794513025636,
+              "entailment": 0.9939248626676327,
+              "neutral": 0.005082557881064674
+            },
+            "raw_scores": [
+              -3.0028116703033447,
+              3.9062981605529785,
+              -1.3695487976074219
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.01355736900040938
+      },
+      {
+        "id": "s2",
+        "type": "direct",
+        "claim": "Mars has two small moons.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Direct statement",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9907506386669254,
+          "contradiction": 0.001036856927451532,
+          "neutral": 0.008212504405623097
+        },
+        "decision_confidence": 0.9907506386669254,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.001036856927451532,
+              "entailment": 0.9907506386669254,
+              "neutral": 0.008212504405623097
+            },
+            "raw_scores": [
+              -3.1368424892425537,
+              3.725426435470581,
+              -1.0673785209655762
+            ],
+            "evidence_id": "mars#0",
+            "premise_excerpt": "Mars has two small moons, Phobos and Deimos.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010435911999593372
+      },
+      {
+        "id": "s3",
+        "type": "direct",
+        "claim": "Venus has the longest day of any planet.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Direct statement",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9291809548213409,
+          "contradiction": 0.020018792238444664,
+          "neutral": 0.050800252940214376
+        },
+        "decision_confidence": 0.9291809548213409,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.020018792238444664,
+              "entailment": 0.9291809548213409,
+              "neutral": 0.050800252940214376
+            },
+            "raw_scores": [
+              -1.7233654260635376,
+              2.1142666339874268,
+              -0.7921355366706848
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. Venus therefore has the longest day of any planet.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.014172787999996217
+      },
+      {
+        "id": "s4",
+        "type": "direct",
+        "claim": "A day on Jupiter lasts only about 9.9 hours.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Direct statement",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9929966496065574,
+          "contradiction": 0.0008785269313572745,
+          "neutral": 0.006124823462085259
+        },
+        "decision_confidence": 0.9929966496065574,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0008785269313572745,
+              "entailment": 0.9929966496065574,
+              "neutral": 0.006124823462085259
+            },
+            "raw_scores": [
+              -3.1479203701019287,
+              3.8823156356811523,
+              -1.2060617208480835
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.012101153999537928
+      },
+      {
+        "id": "s5",
+        "type": "direct",
+        "claim": "Saturn's rings are made mostly of water ice.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Direct statement",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9935013215962248,
+          "contradiction": 0.001571315877713319,
+          "neutral": 0.0049273625260618575
+        },
+        "decision_confidence": 0.9935013215962248,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.001571315877713319,
+              "entailment": 0.9935013215962248,
+              "neutral": 0.0049273625260618575
+            },
+            "raw_scores": [
+              -2.686366558074951,
+              3.7629554271698,
+              -1.5434761047363281
+            ],
+            "evidence_id": "saturn#0",
+            "premise_excerpt": "The rings of Saturn are made mostly of water ice, along with some rock and dust.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.011512933999256347
+      },
+      {
+        "id": "p1",
+        "type": "paraphrase",
+        "claim": "Jupiter rotates once every 9.9 hours.",
+        "expected": "supported",
+        "predicted": "insufficient_evidence",
+        "correct": false,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Paraphrase of day length",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.15846520121970395,
+          "contradiction": 0.1956786669763919,
+          "neutral": 0.6458561318039041
+        },
+        "decision_confidence": 0.6458561318039041,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.1956786669763919,
+              "entailment": 0.15846520121970395,
+              "neutral": 0.6458561318039041
+            },
+            "raw_scores": [
+              -0.3780578672885895,
+              -0.5889967083930969,
+              0.8160450458526611
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009980029999496765
+      },
+      {
+        "id": "p2",
+        "type": "paraphrase",
+        "claim": "A single rotation on Venus takes 243 Earth days.",
+        "expected": "supported",
+        "predicted": "insufficient_evidence",
+        "correct": false,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Paraphrase",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.10777844898808756,
+          "contradiction": 0.05265140498389118,
+          "neutral": 0.8395701460280213
+        },
+        "decision_confidence": 0.8395701460280213,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.05265140498389118,
+              "entailment": 0.10777844898808756,
+              "neutral": 0.8395701460280213
+            },
+            "raw_scores": [
+              -1.2147217988967896,
+              -0.4983370006084442,
+              1.5544753074645996
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.012214131000291673
+      },
+      {
+        "id": "p3",
+        "type": "paraphrase",
+        "claim": "Phobos and Deimos orbit Mars.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Paraphrase of fact",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.7671153322259272,
+          "contradiction": 0.051860542232411815,
+          "neutral": 0.18102412554166109
+        },
+        "decision_confidence": 0.7671153322259272,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.051860542232411815,
+              "entailment": 0.7671153322259272,
+              "neutral": 0.18102412554166109
+            },
+            "raw_scores": [
+              -1.4242162704467773,
+              1.2698626518249512,
+              -0.1741441935300827
+            ],
+            "evidence_id": "mars#0",
+            "premise_excerpt": "Mars has two small moons, Phobos and Deimos.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009784623000086867
+      },
+      {
+        "id": "p4",
+        "type": "paraphrase",
+        "claim": "The Solar System's largest planet is Jupiter.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Paraphrase",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9835946312251133,
+          "contradiction": 0.0032095048490887626,
+          "neutral": 0.013195863925797875
+        },
+        "decision_confidence": 0.9835946312251133,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0032095048490887626,
+              "entailment": 0.9835946312251133,
+              "neutral": 0.013195863925797875
+            },
+            "raw_scores": [
+              -2.534668445587158,
+              3.1904287338256836,
+              -1.1208816766738892
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.01123583800108463
+      },
+      {
+        "id": "p5",
+        "type": "paraphrase",
+        "claim": "Mercury is the closest planet to our star.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Paraphrase (Sun/star)",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9746338784662016,
+          "contradiction": 0.0024791044975723863,
+          "neutral": 0.022887017036226063
+        },
+        "decision_confidence": 0.9746338784662016,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0024791044975723863,
+              "entailment": 0.9746338784662016,
+              "neutral": 0.022887017036226063
+            },
+            "raw_scores": [
+              -2.889219045639038,
+              3.0849454402923584,
+              -0.666546642780304
+            ],
+            "evidence_id": "mercury#0",
+            "premise_excerpt": "Mercury is the closest planet to the Sun.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010276783999870531
+      },
+      {
+        "id": "c1",
+        "type": "contradiction",
+        "claim": "Jupiter has 79 known moons.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Evidence says 95, claim says 79",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.03118811772749429,
+          "contradiction": 0.9151242950962055,
+          "neutral": 0.05368758717630029
+        },
+        "decision_confidence": 0.9151242950962055,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9151242950962055,
+              "entailment": 0.03118811772749429,
+              "neutral": 0.05368758717630029
+            },
+            "raw_scores": [
+              2.0587847232818604,
+              -1.3202379941940308,
+              -0.7770933508872986
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010846154998944257
+      },
+      {
+        "id": "c2",
+        "type": "contradiction",
+        "claim": "Mars has one moon.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Evidence says two, claim says one",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.0005188856084272799,
+          "contradiction": 0.9973895613185041,
+          "neutral": 0.0020915530730686955
+        },
+        "decision_confidence": 0.9973895613185041,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9973895613185041,
+              "entailment": 0.0005188856084272799,
+              "neutral": 0.0020915530730686955
+            },
+            "raw_scores": [
+              4.667942047119141,
+              -2.8932712078094482,
+              -1.4992924928665161
+            ],
+            "evidence_id": "mars#0",
+            "premise_excerpt": "Mars has two small moons, Phobos and Deimos.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009405070000866544
+      },
+      {
+        "id": "c3",
+        "type": "contradiction",
+        "claim": "Venus has the shortest day of any planet.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Opposite of evidence",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.002517209937071808,
+          "contradiction": 0.9946659138583492,
+          "neutral": 0.002816876204578809
+        },
+        "decision_confidence": 0.9946659138583492,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9946659138583492,
+              "entailment": 0.002517209937071808,
+              "neutral": 0.002816876204578809
+            },
+            "raw_scores": [
+              3.9946985244750977,
+              -1.9845572710037231,
+              -1.872079849243164
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "A single day on Venus lasts about 243 Earth days... Venus therefore has the longest day of any planet.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.012484987999414443
+      },
+      {
+        "id": "c4",
+        "type": "contradiction",
+        "claim": "Mercury is farther from the Sun than Venus.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Opposite position",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.009657699182723809,
+          "contradiction": 0.8448942662972717,
+          "neutral": 0.1454480345200045
+        },
+        "decision_confidence": 0.8448942662972717,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.8448942662972717,
+              "entailment": 0.009657699182723809,
+              "neutral": 0.1454480345200045
+            },
+            "raw_scores": [
+              2.0979626178741455,
+              -2.3734934329986572,
+              0.3385699987411499
+            ],
+            "evidence_id": "mercury#0",
+            "premise_excerpt": "Mercury is the closest planet to the Sun.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.008977567000329145
+      },
+      {
+        "id": "c5",
+        "type": "contradiction",
+        "claim": "Saturn's rings are made of solid rock.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Different material",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.002041516924605525,
+          "contradiction": 0.9957597570004698,
+          "neutral": 0.0021987260749246045
+        },
+        "decision_confidence": 0.9957597570004698,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9957597570004698,
+              "entailment": 0.002041516924605525,
+              "neutral": 0.0021987260749246045
+            },
+            "raw_scores": [
+              4.153058052062988,
+              -2.036754846572876,
+              -1.9625698328018188
+            ],
+            "evidence_id": "saturn#0",
+            "premise_excerpt": "The rings of Saturn are made mostly of water ice, along with some rock and dust.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009977600000638631
+      },
+      {
+        "id": "i1",
+        "type": "irrelevant_citation",
+        "claim": "Jupiter has 95 known moons.",
+        "expected": "insufficient_evidence",
+        "predicted": "contradicted",
+        "correct": false,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Cited mars passage doesn't mention Jupiter moons",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.0014175391315534409,
+          "contradiction": 0.909312823783956,
+          "neutral": 0.08926963708449066
+        },
+        "decision_confidence": 0.909312823783956,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.909312823783956,
+              "entailment": 0.0014175391315534409,
+              "neutral": 0.08926963708449066
+            },
+            "raw_scores": [
+              3.002229690551758,
+              -3.4615371227264404,
+              0.6812019348144531
+            ],
+            "evidence_id": "mars#0",
+            "premise_excerpt": "Mars has two small moons, Phobos and Deimos.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.00997928900142142
+      },
+      {
+        "id": "i2",
+        "type": "irrelevant_citation",
+        "claim": "Venus is the hottest planet.",
+        "expected": "insufficient_evidence",
+        "predicted": "contradicted",
+        "correct": false,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Mercury passage doesn't say Venus is hottest",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.0013661967638699379,
+          "contradiction": 0.9764392786015258,
+          "neutral": 0.022194524634604293
+        },
+        "decision_confidence": 0.9764392786015258,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9764392786015258,
+              "entailment": 0.0013661967638699379,
+              "neutral": 0.022194524634604293
+            },
+            "raw_scores": [
+              3.5183804035186768,
+              -3.0535013675689697,
+              -0.2656865417957306
+            ],
+            "evidence_id": "mercury#0",
+            "premise_excerpt": "Mercury spins slowly... temperatures swing from about minus 173 degrees Celsius at night to 427 degrees Celsius during the day.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010661747999620275
+      },
+      {
+        "id": "i3",
+        "type": "irrelevant_citation",
+        "claim": "Earth has liquid water on its surface.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Venus passage irrelevant to Earth water",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.059941063174610135,
+          "contradiction": 0.10716959849033475,
+          "neutral": 0.8328893383350551
+        },
+        "decision_confidence": 0.8328893383350551,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.10716959849033475,
+              "entailment": 0.059941063174610135,
+              "neutral": 0.8328893383350551
+            },
+            "raw_scores": [
+              -0.5178539156913757,
+              -1.0989047288894653,
+              1.5326342582702637
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "Surface pressure is about 92 times the pressure on Earth. A runaway greenhouse effect makes Venus the hottest planet.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010491560999071226
+      },
+      {
+        "id": "i4",
+        "type": "irrelevant_citation",
+        "claim": "Saturn has 146 known moons.",
+        "expected": "insufficient_evidence",
+        "predicted": "contradicted",
+        "correct": false,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Wrong planet",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.00838686336681555,
+          "contradiction": 0.7687957966707069,
+          "neutral": 0.22281733996247766
+        },
+        "decision_confidence": 0.7687957966707069,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.7687957966707069,
+              "entailment": 0.00838686336681555,
+              "neutral": 0.22281733996247766
+            },
+            "raw_scores": [
+              1.946386694908142,
+              -2.5717720985412598,
+              0.7079136371612549
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter has 95 known moons.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.008904087999326293
+      },
+      {
+        "id": "inv1",
+        "type": "invalid_citation",
+        "claim": "Jupiter has moons.",
+        "expected": "invalid_citation",
+        "predicted": "invalid_citation",
+        "correct": true,
+        "explanation": "Invalid/missing citation IDs: ['fake#99']",
+        "rationale": "Non-existent citation",
+        "nli_label": null,
+        "aggregate_scores": {},
+        "decision_confidence": null,
+        "per_evidence": [],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 1.3530001524486579e-05
+      },
+      {
+        "id": "inv2",
+        "type": "invalid_citation",
+        "claim": "Mars is red.",
+        "expected": "invalid_citation",
+        "predicted": "invalid_citation",
+        "correct": true,
+        "explanation": "Invalid/missing citation IDs: ['pluto#0']",
+        "rationale": "Non-existent citation",
+        "nli_label": null,
+        "aggregate_scores": {},
+        "decision_confidence": null,
+        "per_evidence": [],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 7.869000910432078e-06
+      },
+      {
+        "id": "inv3",
+        "type": "invalid_citation",
+        "claim": "Venus is hot.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "No citations provided.",
+        "rationale": "No citations",
+        "nli_label": null,
+        "aggregate_scores": {},
+        "decision_confidence": null,
+        "per_evidence": [],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 5.740001142839901e-06
+      },
+      {
+        "id": "h1",
+        "type": "high_overlap_wrong",
+        "claim": "Jupiter is closer to the Sun than Earth.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "High overlap (Jupiter, Sun) but wrong claim",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.2857784421617717,
+          "contradiction": 0.016193764573229363,
+          "neutral": 0.6980277932649989
+        },
+        "decision_confidence": 0.6980277932649989,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.016193764573229363,
+              "entailment": 0.2857784421617717,
+              "neutral": 0.6980277932649989
+            },
+            "raw_scores": [
+              -2.296213388442993,
+              0.574377179145813,
+              1.4674192667007446
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010440841999297845
+      },
+      {
+        "id": "h2",
+        "type": "high_overlap_wrong",
+        "claim": "Venus has a solid rocky surface like Mercury.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Overlaps but doesn't confirm rocky surface claim",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.005113904757455749,
+          "contradiction": 0.016856423934917267,
+          "neutral": 0.9780296713076271
+        },
+        "decision_confidence": 0.9780296713076271,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.016856423934917267,
+              "entailment": 0.005113904757455749,
+              "neutral": 0.9780296713076271
+            },
+            "raw_scores": [
+              -0.9372766017913818,
+              -2.130045175552368,
+              3.1235315799713135
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "Venus is the second planet from the Sun and is similar in size to Earth.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.01099010200050543
+      },
+      {
+        "id": "h3",
+        "type": "high_overlap_wrong",
+        "claim": "Mars has a thick atmosphere.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Evidence says thin, claim says thick",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.00208124755575694,
+          "contradiction": 0.918740229313429,
+          "neutral": 0.07917852313081399
+        },
+        "decision_confidence": 0.918740229313429,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.918740229313429,
+              "entailment": 0.00208124755575694,
+              "neutral": 0.07917852313081399
+            },
+            "raw_scores": [
+              2.908447027206421,
+              -3.181588888168335,
+              0.4571487009525299
+            ],
+            "evidence_id": "mars#0",
+            "premise_excerpt": "The atmosphere is thin and about 95 percent carbon dioxide.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009422129000085988
+      },
+      {
+        "id": "n1",
+        "type": "negation",
+        "claim": "Mercury has no moons.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Negation supported",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.99278552614668,
+          "contradiction": 0.0008001028335325029,
+          "neutral": 0.006414371019787475
+        },
+        "decision_confidence": 0.99278552614668,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0008001028335325029,
+              "entailment": 0.99278552614668,
+              "neutral": 0.006414371019787475
+            },
+            "raw_scores": [
+              -3.2275776863098145,
+              3.895951986312866,
+              -1.1460217237472534
+            ],
+            "evidence_id": "mercury#0",
+            "premise_excerpt": "Mercury has no moons.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.007949204000397003
+      },
+      {
+        "id": "n2",
+        "type": "negation",
+        "claim": "Venus has moons.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Negation contradiction",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.0013203005807123037,
+          "contradiction": 0.9970273641365137,
+          "neutral": 0.0016523352827739854
+        },
+        "decision_confidence": 0.9970273641365137,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9970273641365137,
+              "entailment": 0.0013203005807123037,
+              "neutral": 0.0016523352827739854
+            },
+            "raw_scores": [
+              4.408114433288574,
+              -2.218804359436035,
+              -1.994474172592163
+            ],
+            "evidence_id": "venus#0",
+            "premise_excerpt": "Venus has no moons.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.007671389999813982
+      },
+      {
+        "id": "num1",
+        "type": "numbers",
+        "claim": "Earth's diameter is 12,742 kilometers.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Number match",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9914413796233013,
+          "contradiction": 0.0017466377971611395,
+          "neutral": 0.006811982579537575
+        },
+        "decision_confidence": 0.9914413796233013,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.0017466377971611395,
+              "entailment": 0.9914413796233013,
+              "neutral": 0.006811982579537575
+            },
+            "raw_scores": [
+              -2.721350908279419,
+              3.6201162338256836,
+              -1.3603603839874268
+            ],
+            "evidence_id": "earth#0",
+            "premise_excerpt": "Earth is the third planet from the Sun and the only planet known to support life. It has a diameter of 12,742 kilometers and orbits at an average distance of 149.6 million kilometers.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.014319785999759915
+      },
+      {
+        "id": "num2",
+        "type": "numbers",
+        "claim": "Jupiter's diameter is 50,000 kilometers.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Wrong number",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.001824537703529342,
+          "contradiction": 0.9204023574922612,
+          "neutral": 0.07777310480420953
+        },
+        "decision_confidence": 0.9204023574922612,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9204023574922612,
+              "entailment": 0.001824537703529342,
+              "neutral": 0.07777310480420953
+            },
+            "raw_scores": [
+              2.9630019664764404,
+              -3.2604823112487793,
+              0.4919867217540741
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.011769038999773329
+      },
+      {
+        "id": "comp1",
+        "type": "comparison",
+        "claim": "Jupiter is more massive than all other planets combined.",
+        "expected": "supported",
+        "predicted": "supported",
+        "correct": true,
+        "explanation": "At least one cited passage entails the claim and none contradicts it.",
+        "rationale": "Comparison supported",
+        "nli_label": "entailment",
+        "aggregate_scores": {
+          "entailment": 0.9905481185714172,
+          "contradiction": 0.002346655449668744,
+          "neutral": 0.007105225978913986
+        },
+        "decision_confidence": 0.9905481185714172,
+        "per_evidence": [
+          {
+            "label": "entailment",
+            "label_id": 1,
+            "scores": {
+              "contradiction": 0.002346655449668744,
+              "entailment": 0.9905481185714172,
+              "neutral": 0.007105225978913986
+            },
+            "raw_scores": [
+              -2.5383973121643066,
+              3.5068700313568115,
+              -1.4305578470230103
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Jupiter is more massive than all the other planets combined, at about 2.5 times their total mass.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010851555000044755
+      },
+      {
+        "id": "comp2",
+        "type": "comparison",
+        "claim": "Earth is larger than Jupiter.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Earth passage doesn't mention Jupiter for comparison",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.08981255092450773,
+          "contradiction": 0.06150859268925686,
+          "neutral": 0.8486788563862354
+        },
+        "decision_confidence": 0.8486788563862354,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.06150859268925686,
+              "entailment": 0.08981255092450773,
+              "neutral": 0.8486788563862354
+            },
+            "raw_scores": [
+              -1.042906641960144,
+              -0.6643587946891785,
+              1.5815973281860352
+            ],
+            "evidence_id": "earth#0",
+            "premise_excerpt": "Earth is the third planet from the Sun and the only planet known to support life. It has a diameter of 12,742 kilometers.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.011498903999381582
+      },
+      {
+        "id": "ins1",
+        "type": "insufficient",
+        "claim": "The Great Red Spot has been observed for 300 years.",
+        "expected": "insufficient_evidence",
+        "predicted": "insufficient_evidence",
+        "correct": true,
+        "explanation": "The model found neither entailment nor contradiction in the cited evidence.",
+        "rationale": "Not stated in passage",
+        "nli_label": "neutral",
+        "aggregate_scores": {
+          "entailment": 0.002046625082403776,
+          "contradiction": 0.0023453997662521166,
+          "neutral": 0.995607975151344
+        },
+        "decision_confidence": 0.995607975151344,
+        "per_evidence": [
+          {
+            "label": "neutral",
+            "label_id": 2,
+            "scores": {
+              "contradiction": 0.0023453997662521166,
+              "entailment": 0.002046625082403776,
+              "neutral": 0.995607975151344
+            },
+            "raw_scores": [
+              -1.9304395914077759,
+              -2.0667033195495605,
+              4.120458126068115
+            ],
+            "evidence_id": "jupiter#0",
+            "premise_excerpt": "Its atmosphere features the Great Red Spot, a giant storm larger than Earth.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.010691547999158502
+      },
+      {
+        "id": "ins2",
+        "type": "insufficient",
+        "claim": "Titan has liquid water oceans.",
+        "expected": "contradicted",
+        "predicted": "contradicted",
+        "correct": true,
+        "explanation": "At least one cited passage contradicts the claim and none entails it.",
+        "rationale": "Says methane/ethane, not water",
+        "nli_label": "contradiction",
+        "aggregate_scores": {
+          "entailment": 0.014292811037471124,
+          "contradiction": 0.9383683619971883,
+          "neutral": 0.047338826965340634
+        },
+        "decision_confidence": 0.9383683619971883,
+        "per_evidence": [
+          {
+            "label": "contradiction",
+            "label_id": 0,
+            "scores": {
+              "contradiction": 0.9383683619971883,
+              "entailment": 0.014292811037471124,
+              "neutral": 0.047338826965340634
+            },
+            "raw_scores": [
+              2.3981781005859375,
+              -1.7862077951431274,
+              -0.58863365650177
+            ],
+            "evidence_id": "saturn#0",
+            "premise_excerpt": "Its largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane.",
+            "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+            "device": "cpu"
+          }
+        ],
+        "aggregation": "conservative",
+        "model_metadata": {
+          "model_name": "/home/collin/.cache/huggingface/hub/models--cross-encoder--nli-MiniLM2-L6-H768/snapshots/b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+          "device": "cpu",
+          "dtype": "float32",
+          "local_files_only": true,
+          "id2label": {
+            "0": "contradiction",
+            "1": "entailment",
+            "2": "neutral"
+          },
+          "max_length": 512,
+          "parameter_count": 82120707,
+          "load_seconds": 0.3086945740014926,
+          "aggregation": "conservative"
+        },
+        "error": null,
+        "runtime_seconds": 0.009360250000099768
+      }
+    ]
+  },
+  "disagreements": [
+    {
+      "id": "p1",
+      "type": "paraphrase",
+      "claim": "Jupiter rotates once every 9.9 hours.",
+      "expected": "supported",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.15846520121970395,
+        "contradiction": 0.1956786669763919,
+        "neutral": 0.6458561318039041
+      },
+      "decision_confidence": 0.6458561318039041,
+      "rationale": "Paraphrase of day length",
+      "lexical_explanation": "Lexical overlap with cited passages (0.50).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "p2",
+      "type": "paraphrase",
+      "claim": "A single rotation on Venus takes 243 Earth days.",
+      "expected": "supported",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.10777844898808756,
+        "contradiction": 0.05265140498389118,
+        "neutral": 0.8395701460280213
+      },
+      "decision_confidence": 0.8395701460280213,
+      "rationale": "Paraphrase",
+      "lexical_explanation": "Lexical overlap with cited passages (0.78).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "c1",
+      "type": "contradiction",
+      "claim": "Jupiter has 79 known moons.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.03118811772749429,
+        "contradiction": 0.9151242950962055,
+        "neutral": 0.05368758717630029
+      },
+      "decision_confidence": 0.9151242950962055,
+      "rationale": "Evidence says 95, claim says 79",
+      "lexical_explanation": "Lexical overlap with cited passages (0.80).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "c2",
+      "type": "contradiction",
+      "claim": "Mars has one moon.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.0005188856084272799,
+        "contradiction": 0.9973895613185041,
+        "neutral": 0.0020915530730686955
+      },
+      "decision_confidence": 0.9973895613185041,
+      "rationale": "Evidence says two, claim says one",
+      "lexical_explanation": "Lexical overlap with cited passages (0.50).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "claim": "Venus has the shortest day of any planet.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.002517209937071808,
+        "contradiction": 0.9946659138583492,
+        "neutral": 0.002816876204578809
+      },
+      "decision_confidence": 0.9946659138583492,
+      "rationale": "Opposite of evidence",
+      "lexical_explanation": "Lexical overlap with cited passages (0.88).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "c4",
+      "type": "contradiction",
+      "claim": "Mercury is farther from the Sun than Venus.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.009657699182723809,
+        "contradiction": 0.8448942662972717,
+        "neutral": 0.1454480345200045
+      },
+      "decision_confidence": 0.8448942662972717,
+      "rationale": "Opposite position",
+      "lexical_explanation": "Lexical overlap with cited passages (0.50).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "c5",
+      "type": "contradiction",
+      "claim": "Saturn's rings are made of solid rock.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.002041516924605525,
+        "contradiction": 0.9957597570004698,
+        "neutral": 0.0021987260749246045
+      },
+      "decision_confidence": 0.9957597570004698,
+      "rationale": "Different material",
+      "lexical_explanation": "Lexical overlap with cited passages (0.75).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "i1",
+      "type": "irrelevant_citation",
+      "claim": "Jupiter has 95 known moons.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.0014175391315534409,
+        "contradiction": 0.909312823783956,
+        "neutral": 0.08926963708449066
+      },
+      "decision_confidence": 0.909312823783956,
+      "rationale": "Cited mars passage doesn't mention Jupiter moons",
+      "lexical_explanation": "Lexical overlap with cited passages (0.40).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "i2",
+      "type": "irrelevant_citation",
+      "claim": "Venus is the hottest planet.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "insufficient_evidence",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.0013661967638699379,
+        "contradiction": 0.9764392786015258,
+        "neutral": 0.022194524634604293
+      },
+      "decision_confidence": 0.9764392786015258,
+      "rationale": "Mercury passage doesn't say Venus is hottest",
+      "lexical_explanation": "Some overlap (0.20) but insufficient for support.",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "i3",
+      "type": "irrelevant_citation",
+      "claim": "Earth has liquid water on its surface.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.059941063174610135,
+        "contradiction": 0.10716959849033475,
+        "neutral": 0.8328893383350551
+      },
+      "decision_confidence": 0.8328893383350551,
+      "rationale": "Venus passage irrelevant to Earth water",
+      "lexical_explanation": "Lexical overlap with cited passages (0.43).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "i4",
+      "type": "irrelevant_citation",
+      "claim": "Saturn has 146 known moons.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.00838686336681555,
+        "contradiction": 0.7687957966707069,
+        "neutral": 0.22281733996247766
+      },
+      "decision_confidence": 0.7687957966707069,
+      "rationale": "Wrong planet",
+      "lexical_explanation": "Lexical overlap with cited passages (0.60).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "h1",
+      "type": "high_overlap_wrong",
+      "claim": "Jupiter is closer to the Sun than Earth.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.2857784421617717,
+        "contradiction": 0.016193764573229363,
+        "neutral": 0.6980277932649989
+      },
+      "decision_confidence": 0.6980277932649989,
+      "rationale": "High overlap (Jupiter, Sun) but wrong claim",
+      "lexical_explanation": "Lexical overlap with cited passages (0.50).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "h3",
+      "type": "high_overlap_wrong",
+      "claim": "Mars has a thick atmosphere.",
+      "expected": "contradicted",
+      "lexical_predicted": "insufficient_evidence",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.00208124755575694,
+        "contradiction": 0.918740229313429,
+        "neutral": 0.07917852313081399
+      },
+      "decision_confidence": 0.918740229313429,
+      "rationale": "Evidence says thin, claim says thick",
+      "lexical_explanation": "Some overlap (0.20) but insufficient for support.",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "n2",
+      "type": "negation",
+      "claim": "Venus has moons.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.0013203005807123037,
+        "contradiction": 0.9970273641365137,
+        "neutral": 0.0016523352827739854
+      },
+      "decision_confidence": 0.9970273641365137,
+      "rationale": "Negation contradiction",
+      "lexical_explanation": "Lexical overlap with cited passages (1.00).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "num2",
+      "type": "numbers",
+      "claim": "Jupiter's diameter is 50,000 kilometers.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.001824537703529342,
+        "contradiction": 0.9204023574922612,
+        "neutral": 0.07777310480420953
+      },
+      "decision_confidence": 0.9204023574922612,
+      "rationale": "Wrong number",
+      "lexical_explanation": "Lexical overlap with cited passages (0.33).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    },
+    {
+      "id": "comp2",
+      "type": "comparison",
+      "claim": "Earth is larger than Jupiter.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.08981255092450773,
+        "contradiction": 0.06150859268925686,
+        "neutral": 0.8486788563862354
+      },
+      "decision_confidence": 0.8486788563862354,
+      "rationale": "Earth passage doesn't mention Jupiter for comparison",
+      "lexical_explanation": "Lexical overlap with cited passages (0.40).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "ins1",
+      "type": "insufficient",
+      "claim": "The Great Red Spot has been observed for 300 years.",
+      "expected": "insufficient_evidence",
+      "lexical_predicted": "supported",
+      "nli_predicted": "insufficient_evidence",
+      "nli_label": "neutral",
+      "aggregate_scores": {
+        "entailment": 0.002046625082403776,
+        "contradiction": 0.0023453997662521166,
+        "neutral": 0.995607975151344
+      },
+      "decision_confidence": 0.995607975151344,
+      "rationale": "Not stated in passage",
+      "lexical_explanation": "Lexical overlap with cited passages (0.40).",
+      "nli_explanation": "The model found neither entailment nor contradiction in the cited evidence."
+    },
+    {
+      "id": "ins2",
+      "type": "insufficient",
+      "claim": "Titan has liquid water oceans.",
+      "expected": "contradicted",
+      "lexical_predicted": "supported",
+      "nli_predicted": "contradicted",
+      "nli_label": "contradiction",
+      "aggregate_scores": {
+        "entailment": 0.014292811037471124,
+        "contradiction": 0.9383683619971883,
+        "neutral": 0.047338826965340634
+      },
+      "decision_confidence": 0.9383683619971883,
+      "rationale": "Says methane/ethane, not water",
+      "lexical_explanation": "Lexical overlap with cited passages (0.60).",
+      "nli_explanation": "At least one cited passage contradicts the claim and none entails it."
+    }
+  ],
+  "runtime": {
+    "cases": 33,
+    "inference_seconds": 0.3219915170011518,
+    "seconds_per_case": 0.0097573186970046,
+    "milliseconds_per_case": 9.7573186970046,
+    "min_case_seconds": 5.740001142839901e-06,
+    "max_case_seconds": 0.014319785999759915,
+    "wall_seconds": 0.3228464739986521,
+    "load_seconds": 1.966527317001237
+  },
+  "calibration": {
+    "softmax_is_calibrated_probability": false,
+    "development_set_used": false,
+    "note": "Softmax scores describe the model's premise/hypothesis relationship only. No temperature scaling or threshold tuning was performed on the 33-case benchmark. Calibration on an independent development set remains future work."
+  }
+}
