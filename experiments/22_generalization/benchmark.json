@@ -1,0 +1,1377 @@
+[
+  {
+    "id": "g1",
+    "type": "direct",
+    "claim": "The human heart has four chambers.",
+    "citations": [
+      "human#0"
+    ],
+    "passages": {
+      "human#0": "The human heart is a muscular organ that pumps blood through the circulatory system. It has four chambers: the left atrium, left ventricle, right atrium, and right ventricle. The heart is about the size of a fist and beats continuously."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the four-chambered human heart."
+  },
+  {
+    "id": "g2",
+    "type": "direct",
+    "claim": "The human liver produces bile.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of liver bile production."
+  },
+  {
+    "id": "g3",
+    "type": "direct",
+    "claim": "The Amazon River flows through Brazil.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the Amazon flow path."
+  },
+  {
+    "id": "g4",
+    "type": "direct",
+    "claim": "The boiling point of water is 100 degrees Celsius.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Water boils at 100 degrees Celsius at sea level. Ethanol boils at about 78 degrees Celsius and evaporates quickly. Methane is a gas at room temperature."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the water boiling point."
+  },
+  {
+    "id": "g5",
+    "type": "direct",
+    "claim": "The Great Barrier Reef lies in the Pacific Ocean.",
+    "citations": [
+      "ocean#0"
+    ],
+    "passages": {
+      "ocean#0": "The Great Barrier Reef lies in the Coral Sea, part of the Pacific Ocean off the coast of Australia. It is the largest coral reef system in the world. It is made of coral animals that build calcium carbonate skeletons."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the reef location."
+  },
+  {
+    "id": "g6",
+    "type": "direct",
+    "claim": "The Eiffel Tower is in Paris.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the tower location."
+  },
+  {
+    "id": "g7",
+    "type": "direct",
+    "claim": "The Pacific Plate is a tectonic plate.",
+    "citations": [
+      "geology#0"
+    ],
+    "passages": {
+      "geology#0": "The Pacific Plate is the largest tectonic plate on Earth. Much of it sits beneath the Pacific Ocean. The plates of the crust are slowly moving and colliding."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the plate identity."
+  },
+  {
+    "id": "g8",
+    "type": "direct",
+    "claim": "The Nile is about 6,650 kilometers long.",
+    "citations": [
+      "nile#0"
+    ],
+    "passages": {
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the Nile length."
+  },
+  {
+    "id": "g9",
+    "type": "direct",
+    "claim": "Mount Everest is the tallest mountain above sea level.",
+    "citations": [
+      "geology#1"
+    ],
+    "passages": {
+      "geology#1": "Mount Everest rises about 8,849 meters above sea level in the Himalayas. It is the tallest mountain on Earth and the highest point in Asia."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the mountain height."
+  },
+  {
+    "id": "g10",
+    "type": "direct",
+    "claim": "The Sahara is the largest hot desert in the world.",
+    "citations": [
+      "africa#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the desert classification."
+  },
+  {
+    "id": "g11",
+    "type": "direct",
+    "claim": "The human brain contains about 86 billion neurons.",
+    "citations": [
+      "biology#1"
+    ],
+    "passages": {
+      "biology#1": "The human brain contains roughly 86 billion neurons. It controls all conscious and unconscious processes of the body. It is the central organ of the nervous system."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of brain neuron count."
+  },
+  {
+    "id": "g12",
+    "type": "direct",
+    "claim": "The speed of light is about 300,000 kilometers per second.",
+    "citations": [
+      "physics#0"
+    ],
+    "passages": {
+      "physics#0": "Light travels at about 300,000 kilometers per second in a vacuum. This speed is a constant of nature. Light is a form of energy that travels through space."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the speed of light."
+  },
+  {
+    "id": "g13",
+    "type": "direct",
+    "claim": "The Roman Empire fell in 476 CE.",
+    "citations": [
+      "history#0"
+    ],
+    "passages": {
+      "history#0": "The Roman Empire fell in 476 CE when the last western emperor was deposed. The eastern half continued as the Byzantine Empire. The western empire had already lost most of its territory."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of the fall date."
+  },
+  {
+    "id": "g14",
+    "type": "direct",
+    "claim": "DNA carries the genetic instructions for life.",
+    "citations": [
+      "biology#0"
+    ],
+    "passages": {
+      "biology#0": "DNA carries the genetic instructions that tell cells how to build proteins. It is organized into genes. DNA is found in the nucleus of every cell."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of DNA function."
+  },
+  {
+    "id": "g15",
+    "type": "direct",
+    "claim": "The Atlantic Ocean is the second-largest ocean by area.",
+    "citations": [
+      "ocean#1"
+    ],
+    "passages": {
+      "ocean#1": "The Atlantic Ocean is the second-largest ocean by area. It lies between North America and Europe and covers about 106 million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Direct statement of ocean area ranking."
+  },
+  {
+    "id": "g20",
+    "type": "paraphrase",
+    "claim": "The human heart beats about one hundred thousand times each day.",
+    "citations": [
+      "human#0"
+    ],
+    "passages": {
+      "human#0": "The heart beats around one hundred thousand times daily and pumps continuously. The heart is about the size of a fist and beats continuously."
+    },
+    "expected": "supported",
+    "rationale": "Day-level paraphrase of the stated beat count.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g21",
+    "type": "paraphrase",
+    "claim": "The Amazon carries more water than all the other major rivers combined.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "Discharge of the Amazon exceeds the combined discharge of the next seven largest rivers. The Amazon is the largest river by discharge volume. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Comparative paraphrase of river discharge.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g22",
+    "type": "paraphrase",
+    "claim": "Ethanol boils at about 78 degrees Celsius.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Ethanol boils at about 78 degrees Celsius at atmospheric pressure and evaporates quickly. Methane is a gas at room temperature. Water boils at 100 degrees Celsius at sea level."
+    },
+    "expected": "supported",
+    "rationale": "Property paraphrase with unit and value restated.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g23",
+    "type": "paraphrase",
+    "claim": "The Eiffel Tower was completed in the nineteenth century.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889, during the nineteenth century. It stands about 330 meters tall and was built by Gustave Eiffel."
+    },
+    "expected": "supported",
+    "rationale": "Era paraphrase of the completion date.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g24",
+    "type": "paraphrase",
+    "claim": "The Moon receives sunlight that takes about eight minutes to arrive.",
+    "citations": [
+      "physics#1"
+    ],
+    "passages": {
+      "physics#1": "A photon leaving the Sun takes roughly eight minutes to travel to the Moon. Light travels at about 300,000 kilometers per second in a vacuum. This speed is a constant of nature."
+    },
+    "expected": "supported",
+    "rationale": "Travel-time paraphrase across Sun, photon, and Moon wording.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g25",
+    "type": "paraphrase",
+    "claim": "The human liver filters harmful substances from the blood.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "supported",
+    "rationale": "Functional paraphrase of liver filtering.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g26",
+    "type": "paraphrase",
+    "claim": "The fall of the Western Roman Empire happened in the fifth century.",
+    "citations": [
+      "history#0"
+    ],
+    "passages": {
+      "history#0": "The fall of the Western Roman Empire occurred in the year 476, during the fifth century. The eastern half continued as the Byzantine Empire. The western empire had already lost most of its territory."
+    },
+    "expected": "supported",
+    "rationale": "Century paraphrase of the fall date.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g27",
+    "type": "paraphrase",
+    "claim": "The Pacific Plate is the largest of the tectonic plates.",
+    "citations": [
+      "geology#0"
+    ],
+    "passages": {
+      "geology#0": "The Pacific Plate is the largest tectonic plate on Earth. Much of it sits beneath the Pacific Ocean. The plates of the crust are slowly moving and colliding."
+    },
+    "expected": "supported",
+    "rationale": "Comparative paraphrase of plate size.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g28",
+    "type": "paraphrase",
+    "claim": "The Nile is one of Africa's great rivers.",
+    "citations": [
+      "nile#0"
+    ],
+    "passages": {
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "supported",
+    "rationale": "Descriptive paraphrase of the Nile's status.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g29",
+    "type": "paraphrase",
+    "claim": "The Amazon basin is about five million square kilometers.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Basin-area paraphrase of the discharge passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g30",
+    "type": "high_overlap_wrong",
+    "claim": "The boiling point of methane is about 100 degrees Celsius.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Water boils at 100 degrees Celsius at sea level. Ethanol boils at about 78 degrees Celsius and evaporates quickly. Methane is a gas at room temperature."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Shared predicate and value, but the substance differs, so the evidence does not establish the claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g31",
+    "type": "high_overlap_wrong",
+    "claim": "The speed of sound is about 300,000 kilometers per second.",
+    "citations": [
+      "physics#0"
+    ],
+    "passages": {
+      "physics#0": "Light travels at about 300,000 kilometers per second in a vacuum. This speed is a constant of nature. Light is a form of energy that travels through space."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The numeric value overlaps but the phenomenon differs, so the pair is not entailed.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g32",
+    "type": "high_overlap_wrong",
+    "claim": "The Sahara is the coldest desert in the world.",
+    "citations": [
+      "africa#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Topical desert overlap without the claimed temperature classification.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g33",
+    "type": "high_overlap_wrong",
+    "claim": "The Amazon discharges less water than the Nile.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Comparison phrasing overlaps but the evidence supports the opposite ranking.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g34",
+    "type": "high_overlap_wrong",
+    "claim": "The human liver produces insulin.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Shared organ subject and function vocabulary without an entailment relation.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g35",
+    "type": "high_overlap_wrong",
+    "claim": "The Amazon River is the shortest river in the world.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Lexical and topical overlap with the Amazon claim but no support for the superlative.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g36",
+    "type": "high_overlap_wrong",
+    "claim": "The Moon is the largest planet in the Solar System.",
+    "citations": [
+      "astronomy#0"
+    ],
+    "passages": {
+      "astronomy#0": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto, known as the Galilean moons. Jupiter is the largest planet in the Solar System."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Celestial-topic overlap without an entailment for the claimed planet.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g40",
+    "type": "negation",
+    "claim": "The human heart does not have four chambers.",
+    "citations": [
+      "human#0"
+    ],
+    "passages": {
+      "human#0": "The human heart is a muscular organ that pumps blood through the circulatory system. It has four chambers: the left atrium, left ventricle, right atrium, and right ventricle. The heart is about the size of a fist and beats continuously."
+    },
+    "expected": "contradicted",
+    "rationale": "The negation of a directly supported fact is contradicted by the evidence.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g41",
+    "type": "contradiction",
+    "claim": "The Amazon River is about 1,000 kilometers long.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is about 6,800 kilometers long and flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "contradicted",
+    "rationale": "Numeric value conflicts with the stated river length.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g42",
+    "type": "contradiction",
+    "claim": "The boiling point of water is 90 degrees Celsius.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Water boils at 100 degrees Celsius at sea level. Ethanol boils at about 78 degrees Celsius and evaporates quickly. Methane is a gas at room temperature."
+    },
+    "expected": "contradicted",
+    "rationale": "Numeric value conflicts with the stated boiling point.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g43",
+    "type": "contradiction",
+    "claim": "The Eiffel Tower was completed in 1900.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "contradicted",
+    "rationale": "Date conflicts with the completion year.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g44",
+    "type": "contradiction",
+    "claim": "Saturn is the largest planet in the Solar System.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System. It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers. Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet."
+    },
+    "expected": "contradicted",
+    "rationale": "Entity substitution conflicts with the supported planet ranking.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g45",
+    "type": "contradiction",
+    "claim": "The Sahara is the largest hot desert in the world and is entirely covered by ice.",
+    "citations": [
+      "africa#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers."
+    },
+    "expected": "contradicted",
+    "rationale": "Qualifier conflicts with the hot-desert classification.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g46",
+    "type": "negation",
+    "claim": "The human liver does not produce bile.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "contradicted",
+    "rationale": "Negation of a directly supported function conflicts with the evidence.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g47",
+    "type": "contradiction",
+    "claim": "The speed of light is about 150,000 kilometers per second.",
+    "citations": [
+      "physics#0"
+    ],
+    "passages": {
+      "physics#0": "Light travels at about 300,000 kilometers per second in a vacuum. This speed is a constant of nature. Light is a form of energy that travels through space."
+    },
+    "expected": "contradicted",
+    "rationale": "Numeric value conflicts with the stated constant.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g48",
+    "type": "negation",
+    "claim": "The Amazon River does not flow through Brazil.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "contradicted",
+    "rationale": "Negation of a directly supported flow path.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g49",
+    "type": "negation",
+    "claim": "The Amazon River does not have any tributaries.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon has more than a thousand tributaries. The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean."
+    },
+    "expected": "contradicted",
+    "rationale": "Negation of a supported tributary count.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g50",
+    "type": "irrelevant_citation",
+    "claim": "The Great Barrier Reef produces oil.",
+    "citations": [
+      "ocean#0"
+    ],
+    "passages": {
+      "ocean#0": "The Great Barrier Reef lies in the Coral Sea, part of the Pacific Ocean off the coast of Australia. It is the largest coral reef system in the world. It is made of coral animals that build calcium carbonate skeletons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited reef passage does not support an oil-production claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g51",
+    "type": "irrelevant_citation",
+    "claim": "The Amazon River is the longest river in the world.",
+    "citations": [
+      "nile#0"
+    ],
+    "passages": {
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited Nile passage is topically adjacent but cannot establish an Amazon superlative.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g52",
+    "type": "irrelevant_citation",
+    "claim": "The Roman Empire used gunpowder.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Water boils at 100 degrees Celsius at sea level. Ethanol boils at about 78 degrees Celsius and evaporates quickly. Methane is a gas at room temperature."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited chemistry passage is unrelated to the Roman military claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g53",
+    "type": "irrelevant_citation",
+    "claim": "The human heart runs on solar power.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited organ passage does not address cardiac energy metabolism.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g54",
+    "type": "irrelevant_citation",
+    "claim": "The Moon is made of cheese.",
+    "citations": [
+      "astronomy#0"
+    ],
+    "passages": {
+      "astronomy#0": "Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto, known as the Galilean moons. Jupiter is the largest planet in the Solar System."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Celestial overlap without an entailment for the lunar claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g55",
+    "type": "irrelevant_citation",
+    "claim": "The Sahara has an ocean coastline.",
+    "citations": [
+      "africa#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Desert passage cannot support a coastal claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g56",
+    "type": "irrelevant_citation",
+    "claim": "The Amazon River produces oil.",
+    "citations": [
+      "ocean#0"
+    ],
+    "passages": {
+      "ocean#0": "The Great Barrier Reef lies in the Coral Sea, part of the Pacific Ocean off the coast of Australia. It is the largest coral reef system in the world. It is made of coral animals that build calcium carbonate skeletons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited reef passage cannot support an oil claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g57",
+    "type": "irrelevant_citation",
+    "claim": "The Eiffel Tower hosts a zoo.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited tower passage cannot support a zoo claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g60",
+    "type": "invalid_citation",
+    "claim": "The Amazon River is the longest river in the world.",
+    "citations": [
+      "fake_doc#7"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "invalid_citation",
+    "rationale": "The cited source does not exist in the corpus.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g61",
+    "type": "missing_citation",
+    "claim": "The Amazon River is the longest river in the world.",
+    "citations": [],
+    "passages": {},
+    "expected": "insufficient_evidence",
+    "rationale": "No citation was supplied, so the claim cannot be checked.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g62",
+    "type": "invalid_citation",
+    "claim": "The Amazon River is the longest river in the world.",
+    "citations": [
+      "mars#999"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "invalid_citation",
+    "rationale": "The cited source is not in the supplied evidence set.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g70",
+    "type": "insufficient",
+    "claim": "The Amazon River is longer than the Nile.",
+    "citations": [
+      "nile#0"
+    ],
+    "passages": {
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited Nile passage is relevant but does not establish the comparison.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g71",
+    "type": "insufficient",
+    "claim": "The Eiffel Tower has a mass of about 10,000 tons.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited tower passage does not state a mass.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g72",
+    "type": "insufficient",
+    "claim": "The Amazon River has no bridges.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited river passage does not address bridges.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g73",
+    "type": "insufficient",
+    "claim": "The Roman Empire had indoor plumbing and used concrete.",
+    "citations": [
+      "history#0"
+    ],
+    "passages": {
+      "history#0": "The Roman Empire fell in 476 CE when the last western emperor was deposed. The eastern half continued as the Byzantine Empire. The western empire had already lost most of its territory."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited history passage does not mention infrastructure details.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g74",
+    "type": "insufficient",
+    "claim": "The Amazon River is the only river in South America.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited river passage does not establish exclusivity.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g75",
+    "type": "insufficient",
+    "claim": "The speed of light in glass is about 300,000 kilometers per second.",
+    "citations": [
+      "physics#0"
+    ],
+    "passages": {
+      "physics#0": "Light travels at about 300,000 kilometers per second in a vacuum. This speed is a constant of nature. Light is a form of energy that travels through space."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited physics passage addresses vacuum speed, not speed in glass.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g76",
+    "type": "insufficient",
+    "claim": "The Sahara receives all of its water from rivers.",
+    "citations": [
+      "africa#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited desert passage does not describe a river-fed water supply.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g77",
+    "type": "insufficient",
+    "claim": "The Atlantic Ocean is covered by desert.",
+    "citations": [
+      "ocean#1"
+    ],
+    "passages": {
+      "ocean#1": "The Atlantic Ocean is the second-largest ocean by area. It lies between North America and Europe and covers about 106 million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited ocean passage does not support a desert-coverage claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g80",
+    "type": "multi_component",
+    "claim": "The Amazon River is the largest by discharge volume and flows through Brazil.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Two supported components stated together in one passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g81",
+    "type": "multi_component",
+    "claim": "The Amazon River is the largest by discharge volume and is only 1,000 kilometers long.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The claim bundles a supported superlative with an unsupported length.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g82",
+    "type": "multi_component",
+    "claim": "The human heart pumps blood through the circulatory system and has four chambers.",
+    "citations": [
+      "human#0"
+    ],
+    "passages": {
+      "human#0": "The human heart is a muscular organ that pumps blood through the circulatory system. It has four chambers: the left atrium, left ventricle, right atrium, and right ventricle. The heart is about the size of a fist and beats continuously."
+    },
+    "expected": "supported",
+    "rationale": "Two supported components stated together in one passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g83",
+    "type": "multi_component",
+    "claim": "The Amazon discharges more water than the Nile and the Nile is about 6,650 kilometers long.",
+    "citations": [
+      "amazon#0",
+      "nile#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers.",
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "supported",
+    "rationale": "Joint support across two independently cited passages.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g84",
+    "type": "multi_component",
+    "claim": "The Sahara is the largest hot desert in the world and the Amazon is the longest river.",
+    "citations": [
+      "africa#0",
+      "amazon#0"
+    ],
+    "passages": {
+      "africa#0": "The Sahara is the largest hot desert in the world, covering about 9.2 million square kilometers. It receives very little rain and has no permanent rivers.",
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "One supported component is paired with an unsupported superlative.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g90",
+    "type": "conflicting_evidence",
+    "claim": "The Amazon River is about 6,800 kilometers long and about 1,000 kilometers long.",
+    "citations": [
+      "amazon#0",
+      "amazon#1"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is about 6,800 kilometers long and flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers.",
+      "amazon#1": "The Amazon is roughly 1,000 kilometers long. The Amazon has more than a thousand tributaries."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Two cited passages conflict on the same numeric attribute, so support must not be accepted.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g91",
+    "type": "conflicting_evidence",
+    "claim": "The Amazon River has many tributaries and has only one tributary.",
+    "citations": [
+      "amazon#0",
+      "amazon#2"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon has more than a thousand tributaries. The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean.",
+      "amazon#2": "The Amazon has only one tributary. The Amazon River is the second-longest river in the world."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Two cited passages conflict on the same factual attribute.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g92",
+    "type": "conflicting_evidence",
+    "claim": "The human heart has four chambers and has three chambers.",
+    "citations": [
+      "human#0",
+      "human#2"
+    ],
+    "passages": {
+      "human#0": "The human heart is a muscular organ that pumps blood through the circulatory system. It has four chambers: the left atrium, left ventricle, right atrium, and right ventricle. The heart is about the size of a fist and beats continuously.",
+      "human#2": "The human heart has three chambers: the atrium, ventricle, and septum. The heart is about the size of a fist and beats continuously."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Two cited passages conflict on the same factual attribute.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g93",
+    "type": "conflicting_evidence",
+    "claim": "The Amazon discharges more water than the Nile and the Nile is about 6,650 kilometers long.",
+    "citations": [
+      "amazon#0",
+      "nile#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers.",
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "supported",
+    "rationale": "Joint support across two cited passages without conflict.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g94",
+    "type": "conflicting_evidence",
+    "claim": "The Sun contains 50 percent of the mass and 99.8 percent of the mass of the Solar System.",
+    "citations": [
+      "overview#0",
+      "overview#1"
+    ],
+    "passages": {
+      "overview#0": "The Sun contains about 99.8 percent of all the mass in the Solar System, and its gravitational pull keeps the planets in orbit. The Sun is a star at the center of the system.",
+      "overview#1": "The Sun contains 50 percent of the mass of the Solar System. The Sun is a star at the center of the system and holds most of the system's energy."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Two cited passages conflict on the same numeric attribute.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g100",
+    "type": "long_passage",
+    "claim": "The atmosphere of Venus is about 96 percent carbon dioxide.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "Venus is the second planet from the Sun and is similar in size to Earth. It has a diameter of 12,104 kilometers and orbits at an average distance of 108.2 million kilometers. Venus rotates very slowly, and its rotation is retrograde, meaning it turns in the opposite direction to most planets. A single day on Venus lasts about 243 Earth days, which is longer than its year of 225 Earth days. The atmosphere of Venus is about 96 percent carbon dioxide, with thick clouds of sulfuric acid. Surface pressure is about 92 times the pressure on Earth. A runaway greenhouse effect makes Venus the hottest planet, with a surface temperature of about 465 degrees Celsius. Venus has no moons. The atmosphere of Venus is about 96 percent carbon dioxide, with thick clouds of sulfuric acid."
+    },
+    "expected": "supported",
+    "rationale": "The supported value appears inside a long multi-sentence passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g101",
+    "type": "long_passage",
+    "claim": "The largest moon of Saturn is Titan.",
+    "citations": [
+      "saturn#0"
+    ],
+    "passages": {
+      "saturn#0": "Saturn is the sixth planet from the Sun and is famous for its bright ring system. It has a diameter of 116,460 kilometers and orbits at an average distance of 1.43 billion kilometers. Saturn rotates quickly. A day on Saturn lasts about 10.7 hours, and a year lasts about 29.4 Earth years. Saturn is the least dense planet, with an average density of 0.687 grams per cubic centimeter, which is less than the density of water. The rings of Saturn are made mostly of water ice, along with some rock and dust. Saturn has 146 known moons. Its largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane. The largest moon of Saturn is Titan."
+    },
+    "expected": "supported",
+    "rationale": "The supported superlative appears late in a long passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g102",
+    "type": "long_passage",
+    "claim": "Jupiter's atmosphere features the Great Red Spot, a giant storm.",
+    "citations": [
+      "jupiter#0"
+    ],
+    "passages": {
+      "jupiter#0": "Jupiter is the fifth planet from the Sun and the largest planet in the Solar System. It has a diameter of 139,820 kilometers and orbits at an average distance of 778.5 million kilometers. Jupiter is more massive than all the other planets combined, at about 2.5 times their total mass. Jupiter rotates very quickly. A day on Jupiter lasts only about 9.9 hours, which is the shortest day of any planet. One year on Jupiter lasts about 11.86 Earth years. Jupiter has 95 known moons. The four largest are Io, Europa, Ganymede, and Callisto, known as the Galilean moons. Its atmosphere features the Great Red Spot, a giant storm larger than Earth. Jupiter is made mostly of hydrogen and helium."
+    },
+    "expected": "supported",
+    "rationale": "The supported fact sits at the end of a long passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g103",
+    "type": "long_passage",
+    "claim": "The atmosphere of Venus is about 96 percent carbon dioxide and mostly nitrogen.",
+    "citations": [
+      "venus#0"
+    ],
+    "passages": {
+      "venus#0": "Venus is the second planet from the Sun and is similar in size to Earth. It has a diameter of 12,104 kilometers and orbits at an average distance of 108.2 million kilometers. The atmosphere of Venus is about 96 percent carbon dioxide, with thick clouds of sulfuric acid. Surface pressure is about 92 times the pressure on Earth. Later study measured the atmosphere of Venus to be mostly nitrogen at about 78 percent, with about 21 percent oxygen and small amounts of other gases. A runaway greenhouse effect makes Venus the hottest planet, with a surface temperature of about 465 degrees Celsius. Venus has no moons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Conflicting values appear inside one long passage, so the claim must not be accepted.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g104",
+    "type": "direct",
+    "claim": "The Amazon River empties into the Atlantic Ocean and has a basin of about five million square kilometers.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Two supported components stated together in one passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g105",
+    "type": "direct",
+    "claim": "The Atlantic Ocean is the second-largest ocean by area and lies between North America and Europe.",
+    "citations": [
+      "ocean#1"
+    ],
+    "passages": {
+      "ocean#1": "The Atlantic Ocean is the second-largest ocean by area. It lies between North America and Europe and covers about 106 million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Two supported components stated together in one passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g106",
+    "type": "paraphrase",
+    "claim": "The Roman Empire split into eastern and western halves.",
+    "citations": [
+      "history#0"
+    ],
+    "passages": {
+      "history#0": "The fall of the Western Roman Empire occurred in the year 476, during the fifth century. The eastern half continued as the Byzantine Empire. The western empire had already lost most of its territory."
+    },
+    "expected": "supported",
+    "rationale": "Split paraphrase of the surviving eastern half.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g107",
+    "type": "contradiction",
+    "claim": "The Nile is the tallest mountain in the world.",
+    "citations": [
+      "geology#1"
+    ],
+    "passages": {
+      "geology#1": "Mount Everest rises about 8,849 meters above sea level in the Himalayas. It is the tallest mountain on Earth and the highest point in Asia."
+    },
+    "expected": "contradicted",
+    "rationale": "Entity substitution conflicts with the supported mountain.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g108",
+    "type": "insufficient",
+    "claim": "The Amazon River is longer than the Pacific Ocean.",
+    "citations": [
+      "ocean#1"
+    ],
+    "passages": {
+      "ocean#1": "The Atlantic Ocean is the second-largest ocean by area. It lies between North America and Europe and covers about 106 million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited ocean passage does not support a river-length comparison.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g109",
+    "type": "irrelevant_citation",
+    "claim": "The Amazon River produces oil.",
+    "citations": [
+      "ocean#0"
+    ],
+    "passages": {
+      "ocean#0": "The Great Barrier Reef lies in the Coral Sea, part of the Pacific Ocean off the coast of Australia. It is the largest coral reef system in the world. It is made of coral animals that build calcium carbonate skeletons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The cited reef passage cannot support an oil claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g110",
+    "type": "long_passage",
+    "claim": "The Amazon River empties into the Atlantic Ocean and flows through Brazil, Peru, and Colombia.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "The supported flow path appears inside a multi-sentence passage.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g111",
+    "type": "direct",
+    "claim": "The Amazon River is the largest by discharge volume and is about 6,800 kilometers long.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "The largest-discharge superlative is supported directly.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g112",
+    "type": "insufficient",
+    "claim": "The Amazon River has a tributary count that conflicts with itself.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon has more than a thousand tributaries. The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "The claim is internally inconsistent and the cited passage cannot resolve it.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g113",
+    "type": "paraphrase",
+    "claim": "The Amazon River basin covers roughly five million square kilometers and the Amazon is the largest river by discharge.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Basin and discharge paraphrase stated together.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g114",
+    "type": "paraphrase",
+    "claim": "The Eiffel Tower stands about 330 meters tall and was completed in 1889.",
+    "citations": [
+      "europe#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "supported",
+    "rationale": "Height and completion paraphrase stated together.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g115",
+    "type": "paraphrase",
+    "claim": "The human brain controls the nervous system and contains roughly 86 billion neurons.",
+    "citations": [
+      "biology#1"
+    ],
+    "passages": {
+      "biology#1": "The human brain contains roughly 86 billion neurons. It controls all conscious and unconscious processes of the body. It is the central organ of the nervous system."
+    },
+    "expected": "supported",
+    "rationale": "Brain function and neuron-count paraphrase stated together.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g116",
+    "type": "paraphrase",
+    "claim": "The Atlantic Ocean lies between North America and Europe and covers about 106 million square kilometers.",
+    "citations": [
+      "ocean#1"
+    ],
+    "passages": {
+      "ocean#1": "The Atlantic Ocean is the second-largest ocean by area. It lies between North America and Europe and covers about 106 million square kilometers."
+    },
+    "expected": "supported",
+    "rationale": "Ocean placement and area paraphrase stated together.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g117",
+    "type": "high_overlap_wrong",
+    "claim": "The Amazon River is the longest river in the Pacific Ocean.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Superlative plus wrong ocean is not established.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g118",
+    "type": "high_overlap_wrong",
+    "claim": "The Great Barrier Reef is in the Atlantic Ocean and produces oil.",
+    "citations": [
+      "ocean#0"
+    ],
+    "passages": {
+      "ocean#0": "The Great Barrier Reef lies in the Coral Sea, part of the Pacific Ocean off the coast of Australia. It is the largest coral reef system in the world. It is made of coral animals that build calcium carbonate skeletons."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Overlapping topic with two unsupported components.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g119",
+    "type": "high_overlap_wrong",
+    "claim": "The Amazon River is the shortest river in the world and the Nile is the tallest mountain.",
+    "citations": [
+      "amazon#0",
+      "geology#1"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers.",
+      "geology#1": "Mount Everest rises about 8,849 meters above sea level in the Himalayas. It is the tallest mountain on Earth and the highest point in Asia."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Superlatives without support are not entailed.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g120",
+    "type": "high_overlap_wrong",
+    "claim": "The Eiffel Tower has a mass of about 10,000 tons and the Amazon is the shortest river in the world.",
+    "citations": [
+      "europe#0",
+      "amazon#0"
+    ],
+    "passages": {
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel.",
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Unsupported superlatives with partial topical overlap.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g121",
+    "type": "insufficient",
+    "claim": "The Amazon River empties into the Pacific Ocean and is the longest river in the world.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "One unsupported placement and one unsupported superlative.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g122",
+    "type": "insufficient",
+    "claim": "The human liver produces bile and stores gold.",
+    "citations": [
+      "biology#2"
+    ],
+    "passages": {
+      "biology#2": "The liver is the largest internal organ in the human body. It filters toxins, stores glycogen, and produces bile for digesting fats. It also filters harmful substances from the blood."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "One supported component paired with an unsupported component.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g123",
+    "type": "insufficient",
+    "claim": "The Amazon River has no tributaries and flows through Europe.",
+    "citations": [
+      "amazon#0",
+      "europe#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon has more than a thousand tributaries. The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean.",
+      "europe#0": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was completed in 1889 and stands about 330 meters tall. It was built by Gustave Eiffel."
+    },
+    "expected": "insufficient_evidence",
+    "rationale": "Unsupported negation and unsupported placement.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g124",
+    "type": "contradiction",
+    "claim": "The boiling point of ethanol is about 100 degrees Celsius and the boiling point of water is about 78 degrees Celsius.",
+    "citations": [
+      "chemistry#0"
+    ],
+    "passages": {
+      "chemistry#0": "Water boils at 100 degrees Celsius at sea level. Ethanol boils at about 78 degrees Celsius and evaporates quickly. Methane is a gas at room temperature."
+    },
+    "expected": "contradicted",
+    "rationale": "Two conflicting numeric values within one claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g125",
+    "type": "contradiction",
+    "claim": "The Amazon River empties into the Atlantic Ocean and into the Pacific Ocean.",
+    "citations": [
+      "amazon#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is the largest river by discharge volume. It flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers."
+    },
+    "expected": "contradicted",
+    "rationale": "Conflicting placements within one claim.",
+    "window_context": "whole_passage"
+  },
+  {
+    "id": "g126",
+    "type": "contradiction",
+    "claim": "The Amazon River is about 6,800 kilometers long and the Nile is about 1,000 kilometers long.",
+    "citations": [
+      "amazon#0",
+      "nile#0"
+    ],
+    "passages": {
+      "amazon#0": "The Amazon River is about 6,800 kilometers long and flows through Brazil, Peru, and Colombia before emptying in the Atlantic Ocean. The river basin covers about five million square kilometers.",
+      "nile#0": "The Nile is a major river in Africa. It is about 6,650 kilometers long and flows northward into the Mediterranean. It is one of Africa's great rivers."
+    },
+    "expected": "contradicted",
+    "rationale": "Cross-claim numeric conflict.",
+    "window_context": "whole_passage"
+  }
+]

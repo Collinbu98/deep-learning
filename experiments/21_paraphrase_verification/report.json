@@ -319,7 +319,7 @@
         "device": "loaded",
         "status": "loaded",
         "error": null,
-        "load_seconds": 0.3389344409988553
+        "load_seconds": 0.31326706199979526
       }
     ],
     "cpu_fallback": false,
@@ -335,7 +335,7 @@
       },
       "max_length": 512,
       "parameter_count": 82120707,
-      "load_seconds": 0.3389344409988553
+      "load_seconds": 0.31326706199979526
     }
   },
   "probes": {
@@ -553,8 +553,8 @@
       },
       "runtime": {
         "cases": 8,
-        "inference_seconds": 0.2702964109957975,
-        "milliseconds_per_case": 33.787051374474686,
+        "inference_seconds": 0.2278555150005559,
+        "milliseconds_per_case": 28.481939375069487,
         "windows_scored": 8,
         "average_windows_per_claim": 1.0,
         "max_windows_per_claim": 1
@@ -963,7 +963,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1029,7 +1029,7 @@
               "confidence": 0.32005574573116546
             }
           },
-          "runtime_seconds": 0.043395190998126054
+          "runtime_seconds": 0.03305372099930537
         },
         {
           "id": "dev21_p2",
@@ -1091,7 +1091,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1147,7 +1147,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.03680963599981624
+          "runtime_seconds": 0.029515771002479596
         },
         {
           "id": "dev21_p3",
@@ -1209,7 +1209,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1269,7 +1269,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.025633100998675218
+          "runtime_seconds": 0.022824797000794206
         },
         {
           "id": "dev21_p4",
@@ -1331,7 +1331,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1394,7 +1394,7 @@
               "confidence": 0.0652050836521937
             }
           },
-          "runtime_seconds": 0.03189652099899831
+          "runtime_seconds": 0.02655384299941943
         },
         {
           "id": "dev21_p5",
@@ -1456,7 +1456,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1519,7 +1519,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.032482462000189116
+          "runtime_seconds": 0.02814829499766347
         },
         {
           "id": "dev21_c1",
@@ -1581,7 +1581,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1640,7 +1640,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.034536266000941396
+          "runtime_seconds": 0.030108310998912202
         },
         {
           "id": "dev21_i1",
@@ -1702,7 +1702,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1760,7 +1760,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.03249952199985273
+          "runtime_seconds": 0.028326472001936054
         },
         {
           "id": "dev21_n1",
@@ -1822,7 +1822,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -1878,7 +1878,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.03304371199919842
+          "runtime_seconds": 0.02932430500004557
         }
       ]
     },
@@ -2015,8 +2015,8 @@
       },
       "runtime": {
         "cases": 33,
-        "inference_seconds": 0.35715453100783634,
-        "milliseconds_per_case": 10.822864575995041,
+        "inference_seconds": 0.3232586289923347,
+        "milliseconds_per_case": 9.795716030070748,
         "windows_scored": 30,
         "average_windows_per_claim": 0.9090909090909091,
         "max_windows_per_claim": 1
@@ -2307,7 +2307,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2363,7 +2363,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012268056001630612
+          "runtime_seconds": 0.011122987998533063
         },
         {
           "id": "s2",
@@ -2425,7 +2425,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2481,7 +2481,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.010775121001643129
+          "runtime_seconds": 0.009522365999146132
         },
         {
           "id": "s3",
@@ -2543,7 +2543,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2599,7 +2599,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.014552925000316463
+          "runtime_seconds": 0.01289396799984388
         },
         {
           "id": "s4",
@@ -2661,7 +2661,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2717,7 +2717,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.014291890001913998
+          "runtime_seconds": 0.012334577000729041
         },
         {
           "id": "s5",
@@ -2779,7 +2779,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2835,7 +2835,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012404023000271991
+          "runtime_seconds": 0.011321964997478062
         },
         {
           "id": "p1",
@@ -2897,7 +2897,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -2960,7 +2960,7 @@
               "confidence": 0.15846520121970395
             }
           },
-          "runtime_seconds": 0.012054688999342034
+          "runtime_seconds": 0.011157597000419628
         },
         {
           "id": "p2",
@@ -3022,7 +3022,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3088,7 +3088,7 @@
               "confidence": 0.10777844898808756
             }
           },
-          "runtime_seconds": 0.012443581999832531
+          "runtime_seconds": 0.011238317001698306
         },
         {
           "id": "p3",
@@ -3150,7 +3150,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3212,7 +3212,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.01086736000070232
+          "runtime_seconds": 0.010121126000740333
         },
         {
           "id": "p4",
@@ -3274,7 +3274,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3336,7 +3336,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.01199505999829853
+          "runtime_seconds": 0.01118616799794836
         },
         {
           "id": "p5",
@@ -3398,7 +3398,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3454,7 +3454,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.011047617001167964
+          "runtime_seconds": 0.010104255998157896
         },
         {
           "id": "c1",
@@ -3516,7 +3516,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3576,7 +3576,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012535220001154812
+          "runtime_seconds": 0.011553339998499723
         },
         {
           "id": "c2",
@@ -3638,7 +3638,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3698,7 +3698,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.010218370996881276
+          "runtime_seconds": 0.009496816001046682
         },
         {
           "id": "c3",
@@ -3760,7 +3760,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3820,7 +3820,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.013097270999423927
+          "runtime_seconds": 0.012031783000566065
         },
         {
           "id": "c4",
@@ -3882,7 +3882,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -3946,7 +3946,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.010184262002439937
+          "runtime_seconds": 0.00944242699915776
         },
         {
           "id": "c5",
@@ -4008,7 +4008,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4068,7 +4068,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.011681735999445664
+          "runtime_seconds": 0.011082739001722075
         },
         {
           "id": "i1",
@@ -4130,7 +4130,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4186,7 +4186,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.010394807999546174
+          "runtime_seconds": 0.009410128001036355
         },
         {
           "id": "i2",
@@ -4248,7 +4248,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4304,7 +4304,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012572800002089934
+          "runtime_seconds": 0.011112879001302645
         },
         {
           "id": "i3",
@@ -4366,7 +4366,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4422,7 +4422,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012183136997919064
+          "runtime_seconds": 0.011064528996939771
         },
         {
           "id": "i4",
@@ -4484,7 +4484,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4540,7 +4540,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.009810548999666935
+          "runtime_seconds": 0.00866951100033475
         },
         {
           "id": "inv1",
@@ -4571,7 +4571,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4608,7 +4608,7 @@
               "windows": []
             }
           },
-          "runtime_seconds": 7.306900079129264e-05
+          "runtime_seconds": 6.864899842184968e-05
         },
         {
           "id": "inv2",
@@ -4639,7 +4639,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4676,7 +4676,7 @@
               "windows": []
             }
           },
-          "runtime_seconds": 4.9809001211542636e-05
+          "runtime_seconds": 5.769900235463865e-05
         },
         {
           "id": "inv3",
@@ -4707,7 +4707,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4744,7 +4744,7 @@
               "windows": []
             }
           },
-          "runtime_seconds": 4.220900154905394e-05
+          "runtime_seconds": 5.3069001296535134e-05
         },
         {
           "id": "h1",
@@ -4806,7 +4806,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4866,7 +4866,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.011773973998060683
+          "runtime_seconds": 0.010531378000450786
         },
         {
           "id": "h2",
@@ -4928,7 +4928,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -4985,7 +4985,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012233956000272883
+          "runtime_seconds": 0.010872102997382171
         },
         {
           "id": "h3",
@@ -5047,7 +5047,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5107,7 +5107,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.010328189000574639
+          "runtime_seconds": 0.009487846000411082
         },
         {
           "id": "n1",
@@ -5169,7 +5169,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5225,7 +5225,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.009150329999101814
+          "runtime_seconds": 0.008578472003136994
         },
         {
           "id": "n2",
@@ -5287,7 +5287,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5347,7 +5347,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.009535163000691682
+          "runtime_seconds": 0.008704469997610431
         },
         {
           "id": "num1",
@@ -5409,7 +5409,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5465,7 +5465,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.015460268998140236
+          "runtime_seconds": 0.014190355999744497
         },
         {
           "id": "num2",
@@ -5527,7 +5527,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5587,7 +5587,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012748647000989877
+          "runtime_seconds": 0.01172422699892195
         },
         {
           "id": "comp1",
@@ -5649,7 +5649,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5705,7 +5705,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012794156002200907
+          "runtime_seconds": 0.011388883998733945
         },
         {
           "id": "comp2",
@@ -5767,7 +5767,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5824,7 +5824,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.013276088000566233
+          "runtime_seconds": 0.011643759000435239
         },
         {
           "id": "ins1",
@@ -5886,7 +5886,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -5948,7 +5948,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.012527061000582762
+          "runtime_seconds": 0.010569128000497585
         },
         {
           "id": "ins2",
@@ -6010,7 +6010,7 @@
             },
             "max_length": 512,
             "parameter_count": 82120707,
-            "load_seconds": 0.3389344409988553,
+            "load_seconds": 0.31326706199979526,
             "aggregation": "conservative",
             "window_strategy": "whole_passage",
             "adjacent_context": 0,
@@ -6070,7 +6070,7 @@
               ]
             }
           },
-          "runtime_seconds": 0.01178313399941544
+          "runtime_seconds": 0.010521108997636475
         }
       ]
     },
