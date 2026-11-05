@@ -1,0 +1,172 @@
+{
+  "status": "completed",
+  "device": "cuda:0",
+  "seed": 0,
+  "data_path": "/home/collin/deep-learning/data/pg1342.txt",
+  "corpus_chars": 748167,
+  "tokenizer": {
+    "vocab_size": 256,
+    "vocab_size_target": 256,
+    "alphabet_size": 92,
+    "n_merges": 163,
+    "unk_id": 255,
+    "tokenizer_type": "bpe_char"
+  },
+  "tokenizer_train_chars": 673350,
+  "tokenizer_val_chars": 74817,
+  "tokenizer_train_tokens": 345930,
+  "tokenizer_val_tokens": 40198,
+  "config": {
+    "vocab_size": 256,
+    "n_layers": 16,
+    "d_model": 512,
+    "n_heads": 8,
+    "dff": 768,
+    "context_len": 256,
+    "dropout": 0.0,
+    "batch_size": 4,
+    "epochs": 3,
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "clip_grad": 1.0,
+    "val_split": 0.1,
+    "seed": 0,
+    "device": null,
+    "use_mixed_precision": true
+  },
+  "num_parameters": 29840640,
+  "expected_parameter_count": 29840640,
+  "parameter_count_matches": true,
+  "estimated_parameter_bytes": 119362560,
+  "estimated_optimizer_bytes": 358087680,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.8469782553095593,
+      "train_perplexity": 17.235621425000268,
+      "train_tokens": 88492544,
+      "train_steps": 86419,
+      "val_loss": 3.878032081588341,
+      "val_perplexity": 48.329013871756715,
+      "val_tokens": 10225152,
+      "val_steps": 9986,
+      "epoch_seconds": 3034.5278930664062
+    },
+    {
+      "epoch": 2,
+      "train_loss": 4.531662088972306,
+      "train_perplexity": 92.91286225919377,
+      "train_tokens": 88492544,
+      "train_steps": 86419,
+      "val_loss": 4.66694205124003,
+      "val_perplexity": 106.37196456316732,
+      "val_tokens": 10225152,
+      "val_steps": 9986,
+      "epoch_seconds": 3043.174344778061
+    },
+    {
+      "epoch": 3,
+      "train_loss": 4.894869455576676,
+      "train_perplexity": 133.602564406355,
+      "train_tokens": 88492544,
+      "train_steps": 86419,
+      "val_loss": 5.038841437472106,
+      "val_perplexity": 154.29115548478615,
+      "val_tokens": 10225152,
+      "val_steps": 9986,
+      "epoch_seconds": 2947.1362504959106
+    }
+  ],
+  "best_epoch": 1,
+  "best_val_loss": 3.878032081588341,
+  "final_val_loss": 5.038841437472106,
+  "final_val_perplexity": 154.29115548478615,
+  "final_val": {
+    "loss": 5.038841437472106,
+    "perplexity": 154.29115548478615,
+    "tokens": 10225152,
+    "steps": 9986
+  },
+  "steps": 259257,
+  "tokens_processed": 265477632,
+  "total_seconds": 9387.368949174881,
+  "train_seconds": 9024.838488340378,
+  "tokens_per_second": 29416.33053522047,
+  "peak_memory": {
+    "device": "cuda:0",
+    "cuda_available": true,
+    "allocated_mb": 645.746688,
+    "reserved_mb": 1086.324736,
+    "peak_allocated_mb": 1059.725824,
+    "peak_reserved_mb": 1086.324736,
+    "free_mb": 15513.092096,
+    "total_mb": 17163.091968,
+    "supported": true
+  },
+  "checkpoint_dir": "/home/collin/deep-learning/checkpoints/25_first_gpt",
+  "best_checkpoint": "/home/collin/deep-learning/checkpoints/25_first_gpt/best.pt",
+  "latest_checkpoint": "/home/collin/deep-learning/checkpoints/25_first_gpt/latest.pt",
+  "epoch_checkpoints": {
+    "1": "/home/collin/deep-learning/checkpoints/25_first_gpt/epoch_1.pt",
+    "2": "/home/collin/deep-learning/checkpoints/25_first_gpt/epoch_2.pt",
+    "3": "/home/collin/deep-learning/checkpoints/25_first_gpt/epoch_3.pt"
+  },
+  "resumed": false,
+  "start_step": 259257,
+  "initial_samples": {
+    "It is a truth universally true that": "It is a truth universally true thather bethbut Eliza, and tt\u00b7P\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceoenis sed y \u201dreXbut 2lizvery ",
+    "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and Prejudiceher bethbut Eliza, and edwith P\u2018ai.\u201dtofhem3lizbethld Xto unElizabethll , and alut ositat o y beenXbut Wlizdi",
+    "You have the right to keep your own copy": "You have the right to keep your own copyher bethbut Eliza, and le9A\u2018ai.\u201dtofheri3liz awhiXto unElizabethll , and by ceoentat ed y Gen1but 1liz; and ",
+    "most other parts of the world at no cost and": "most other parts of the world at no cost andher bethbut Eliza, and tt\u00b7A\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceositat o y \u201dreXbut 2lizvery ",
+    "xyzzy quux blorf plugh": "xyzzy quux blorf plughher bethbut Eliza, and le9A\u2018ai.\u201d7w\u015323liz aecXat nowElizabethll dhe ut ositat ed y pen1but 2lizvery "
+  },
+  "generation_settings": {
+    "max_new_tokens": 40,
+    "temperature": 0.8,
+    "top_k": null
+  },
+  "prompts": [
+    "It is a truth universally true that",
+    "The Project Gutenberg eBook of Pride and Prejudice",
+    "You have the right to keep your own copy",
+    "most other parts of the world at no cost and",
+    "xyzzy quux blorf plugh"
+  ],
+  "samples": {
+    "initial": {
+      "It is a truth universally true that": "It is a truth universally true thather bethbut Eliza, and tt\u00b7P\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceoenis sed y \u201dreXbut 2lizvery ",
+      "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and Prejudiceher bethbut Eliza, and edwith P\u2018ai.\u201dtofhem3lizbethld Xto unElizabethll , and alut ositat o y beenXbut Wlizdi",
+      "You have the right to keep your own copy": "You have the right to keep your own copyher bethbut Eliza, and le9A\u2018ai.\u201dtofheri3liz awhiXto unElizabethll , and by ceoentat ed y Gen1but 1liz; and ",
+      "most other parts of the world at no cost and": "most other parts of the world at no cost andher bethbut Eliza, and tt\u00b7A\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceositat o y \u201dreXbut 2lizvery ",
+      "xyzzy quux blorf plugh": "xyzzy quux blorf plughher bethbut Eliza, and le9A\u2018ai.\u201d7w\u015323liz aecXat nowElizabethll dhe ut ositat ed y pen1but 2lizvery "
+    },
+    "epoch_1": {
+      "It is a truth universally true that": "It is a truth universally true thate\nbut she had perrare.\u201d--shas of ss and to be ill dispoon taned thebeended pwith hi",
+      "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and Prejudiceley. I had fordon on to\nawhall here of the deard he ss of his frul, in mes her hersing,\n",
+      "You have the right to keep your own copy": "You have the right to keep your own copy\npear thing in the men st of Mish to ofshigh, revevevitever poin be don",
+      "most other parts of the world at no cost and": "most other parts of the world at no cost and, nree\neannor of theone of the prolawentrie:lmind to\ngincafurded ou",
+      "xyzzy quux blorf plugh": "xyzzy quux blorf plughty seen theable, be\nthe\nenld mup the me\ncor of aued of\nof at it star an of ourh"
+    },
+    "epoch_2": {
+      "It is a truth universally true that": "It is a truth universally true thatorrirpeppan Sof         Jic the to the cle thather pouall agh be d lised ar that the l",
+      "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and Prejudicerevy of in renhanly le. d heav; the the Tuzucleent in; insould of Gene iny, to se",
+      "You have the right to keep your own copy": "You have the right to keep your own copyahe not Iararre that to s. c, mo whifucromisreenaruf thonou\ns, thas, wo",
+      "most other parts of the world at no cost and": "most other parts of the world at no cost andcadss delongall beorled thetstidek ti\n\ntoe ]on w hsich as, and bee wt or",
+      "xyzzy quux blorf plugh": "xyzzy quux blorf plughed a mdrenertaousewistionne it with I I beled a.\u201dfe dae daws uve the in "
+    },
+    "epoch_3": {
+      "It is a truth universally true that": "It is a truth universally true that\nmdeus , e and andpcomeon ismoumttanI usdIs dpi bweecarkut by p",
+      "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and PrejudicealHagof arvth llarmheer isecin\npenschonpwhad , to to his ohis  uwor\n geed ",
+      "You have the right to keep your own copy": "You have the right to keep your own copy smssiy, gent kHBoforristing yt \nsehait ishuforts \n\nelmevn\u201cis, rt i",
+      "most other parts of the world at no cost and": "most other parts of the world at no cost andll obe wpsf\nee e erhad eds \neseirasm\neing tutheed arll ain sbfnot em",
+      "xyzzy quux blorf plugh": "xyzzy quux blorf plugha le uud ationthr-reothe mt?hedeell\ny \nce hitatin en s orasthat sof an I t"
+    },
+    "best": {
+      "It is a truth universally true that": "It is a truth universally true thatt of her\novere they of been my Cottinsure able ucertoneent.\n\nLiss were they. ",
+      "The Project Gutenberg eBook of Pride and Prejudice": "The Project Gutenberg eBook of Pride and Prejudice; and her compaidoloout\ndaughthok ie. I had not ind your go p; and his pard is ",
+      "You have the right to keep your own copy": "You have the right to keep your own copy\nyouappear ing to s by been her, I  applecties, he thought serle my that it dare\nwert ",
+      "most other parts of the world at no cost and": "most other parts of the world at no cost ande ise vaying rough\nhis under; th, sing al wis, or nertioued able by duremite",
+      "xyzzy quux blorf plugh": "xyzzy quux blorf plugh\nthat his lookle.the bointo the uls cerve to uss barly\ncomproause in airsake "
+    }
+  }
+}

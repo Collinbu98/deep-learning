@@ -26,6 +26,7 @@ Run with:
 from __future__ import annotations
 
 import argparse
+import contextlib
 import importlib.util
 import math
 import random
@@ -336,31 +337,115 @@ class GPTTokenDataset(Dataset):
 
 def next_token_loss(model, x, y):
     logits = model(x)
-    return nn.functional.cross_entropy(logits.reshape(-1, model.vocab_size), y.reshape(-1))
+    # Numerically sensitive reduction (cross-entropy) stays in float32 even
+    # when the forward pass runs under bf16 autocast; only the matmul/softmax
+    # compute path uses the autocast dtype.
+    return nn.functional.cross_entropy(logits.reshape(-1, model.vocab_size).float(), y.reshape(-1))
 
 
-def train_epoch(model, loader, criterion, optimizer, device, clip_grad=None) -> dict:
+def train_epoch(
+    model,
+    loader,
+    criterion,
+    optimizer,
+    device,
+    clip_grad=None,
+    use_mixed_precision=False,
+    diagnostics: bool = False,
+    diagnostics_interval: int = 100,
+    val_loader=None,
+    max_steps=None,
+) -> dict:
     model.train()
     total_loss = 0.0
     total_tokens = 0
     steps = 0
+    loss_ctx = (
+        torch.autocast(device_type=str(device), dtype=torch.bfloat16)
+        if use_mixed_precision
+        else contextlib.nullcontext()
+    )
+    diag_history = []
     for x, y in loader:
+        model.train()
         x = x.to(device)
         y = y.to(device)
         optimizer.zero_grad(set_to_none=True)
-        loss = next_token_loss(model, x, y)
-        loss.backward()
+        logits = None
+        loss = None
+        logits_dtype = None
+        loss_dtype = None
+        with loss_ctx:
+            if diagnostics:
+                logits = model(x)
+                loss = nn.functional.cross_entropy(logits.reshape(-1, model.vocab_size).float(), y.reshape(-1))
+                logits_dtype = str(logits.dtype)
+                loss_dtype = str(loss.dtype)
+            else:
+                loss = next_token_loss(model, x, y)
+                loss_dtype = str(loss.dtype)
+            loss.backward()
+        pre_clip_norm = 0.0
+        post_clip_norm = 0.0
+        clipped = False
         if clip_grad is not None and clip_grad > 0:
-            torch.nn.utils.clip_grad_norm_(model.parameters(), float(clip_grad))
+            pre_clip_norm = float(torch.nn.utils.clip_grad_norm_(model.parameters(), float(clip_grad)))
+            post_clip_norm = pre_clip_norm if pre_clip_norm <= float(clip_grad) else float(clip_grad)
+            clipped = pre_clip_norm > float(clip_grad)
+        old_params = None
+        if diagnostics:
+            old_params = [p.detach().clone() for p in model.parameters() if p.requires_grad]
         optimizer.step()
         total_loss += loss.item() * int(x.numel())
         total_tokens += int(x.numel())
         steps += 1
-    return {
+        if diagnostics:
+            grad_finite = [torch.isfinite(p.grad).all() for p in model.parameters() if p.grad is not None]
+            param_finite = [torch.isfinite(p).all() for p in model.parameters()]
+            grads_finite = bool(torch.stack(grad_finite).all().item()) if grad_finite else True
+            params_finite = bool(torch.stack(param_finite).all().item()) if param_finite else True
+            update_ratio = 0.0
+            if old_params is not None:
+                live_params = [p for p in model.parameters() if p.requires_grad]
+                if live_params:
+                    deltas = torch.stack([(p.detach() - p_old).abs().max() for p, p_old in zip(live_params, old_params)])
+                    denoms = torch.stack([p.detach().abs().max() for p in live_params])
+                    update_ratio = float((deltas.max() / (denoms.max() + 1e-8)).item())
+            diag_history.append(
+                {
+                    "step": int(steps),
+                    "loss": float(loss.detach()),
+                    "loss_finite": bool(torch.isfinite(loss).item()),
+                    "grad_pre_clip_norm": float(pre_clip_norm),
+                    "grad_post_clip_norm": float(post_clip_norm),
+                    "clipped": bool(clipped),
+                    "grads_finite": bool(grads_finite),
+                    "params_finite": bool(params_finite),
+                    "update_ratio": float(update_ratio),
+                    "lr": float(optimizer.param_groups[0]["lr"]),
+                    "logits_dtype": logits_dtype,
+                    "loss_dtype": loss_dtype,
+                }
+            )
+            if val_loader is not None and diagnostics_interval > 0 and steps % diagnostics_interval == 0:
+                val_metrics = validate_epoch(model, val_loader, criterion, device)
+                diag_history.append(
+                    {
+                        "step": int(steps),
+                        "val_loss": float(val_metrics["loss"]),
+                        "val_perplexity": float(val_metrics["perplexity"]),
+                    }
+                )
+        if max_steps is not None and steps >= max_steps:
+            break
+    out = {
         "loss": float(total_loss / max(1, total_tokens)),
         "tokens": int(total_tokens),
         "steps": int(steps),
     }
+    if diagnostics:
+        out["diagnostics"] = diag_history
+    return out
 
 
 def validate_epoch(model, loader, criterion, device) -> dict:
@@ -385,7 +470,21 @@ def validate_epoch(model, loader, criterion, device) -> dict:
     }
 
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, device, epochs, clip_grad=1.0, max_steps=None):
+def train_model(
+    model,
+    train_loader,
+    val_loader,
+    criterion,
+    optimizer,
+    device,
+    epochs,
+    clip_grad=1.0,
+    max_steps=None,
+    use_mixed_precision=False,
+    diagnostics: bool = False,
+    diagnostics_interval: int = 100,
+    diagnostics_val_loader=None,
+):
     model.train()
     history = []
     step = 0
@@ -393,9 +492,30 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, device, e
     best_epoch = 0
     best_state = None
     start = time.time()
+    all_diagnostics = []
     for epoch in range(epochs):
+        if max_steps is not None and step >= max_steps:
+            break
         epoch_start = time.time()
-        train_metrics = train_epoch(model, train_loader, criterion, optimizer, device, clip_grad=clip_grad)
+        remaining = None if max_steps is None else max(1, int(max_steps) - step)
+        train_metrics = train_epoch(
+            model,
+            train_loader,
+            criterion,
+            optimizer,
+            device,
+            clip_grad=clip_grad,
+            use_mixed_precision=use_mixed_precision,
+            diagnostics=diagnostics,
+            diagnostics_interval=diagnostics_interval,
+            val_loader=(
+                diagnostics_val_loader
+                if diagnostics_val_loader is not None
+                else val_loader
+            ),
+            max_steps=remaining,
+        )
+        all_diagnostics.extend(train_metrics.get("diagnostics") or [])
         val_metrics = validate_epoch(model, val_loader, criterion, device)
         step += train_metrics["steps"]
         history.append(
@@ -424,6 +544,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, device, e
         "best_val_loss": best_val_loss,
         "best_state": best_state,
         "steps": step,
+        "diagnostics": all_diagnostics,
         "total_seconds": time.time() - start,
     }
 
@@ -636,6 +757,7 @@ def run_training(args) -> dict:
         epochs=epochs,
         clip_grad=clip_grad,
         max_steps=max_steps,
+        use_mixed_precision=bool(getattr(args, "mixed_precision", False)),
     )
     result["resumed"] = resumed
     result["start_step"] = start_step
@@ -720,6 +842,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--val_split", type=float, default=None, help="Validation split ratio")
     parser.add_argument("--seed", type=int, default=0, help="Random seed")
     parser.add_argument("--device", type=str, default=None, help="Device: auto, cpu, cuda, cuda:<idx>")
+    parser.add_argument("--mixed-precision", action="store_true", help="Use bf16 autocast for loss/grad computation (validated in Experiment 24)")
     parser.add_argument("--checkpoint", type=str, default=str(DEFAULT_CHECKPOINT), help="Best-checkpoint output path")
     parser.add_argument("--resume", type=str, default=None, help="Resume from a checkpoint")
     parser.add_argument("--generate-prompt", type=str, default=None, help="Generate from checkpoint instead of training")

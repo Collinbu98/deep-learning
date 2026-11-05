@@ -1,0 +1,57 @@
+{
+  "experiment": "25_first_gpt_training",
+  "generation_settings": {
+    "max_new_tokens": 40,
+    "temperature": 0.8,
+    "top_k": null
+  },
+  "stages": [
+    "initial",
+    "epoch_1",
+    "epoch_2",
+    "epoch_3",
+    "best"
+  ],
+  "samples": [
+    {
+      "prompt": "It is a truth universally true that",
+      "epoch_1": "It is a truth universally true thate\nbut she had perrare.\u201d--shas of ss and to be ill dispoon taned thebeended pwith hi",
+      "epoch_2": "It is a truth universally true thatorrirpeppan Sof         Jic the to the cle thather pouall agh be d lised ar that the l",
+      "epoch_3": "It is a truth universally true that\nmdeus , e and andpcomeon ismoumttanI usdIs dpi bweecarkut by p",
+      "best": "It is a truth universally true thatt of her\novere they of been my Cottinsure able ucertoneent.\n\nLiss were they. ",
+      "initial": "It is a truth universally true thather bethbut Eliza, and tt\u00b7P\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceoenis sed y \u201dreXbut 2lizvery "
+    },
+    {
+      "prompt": "The Project Gutenberg eBook of Pride and Prejudice",
+      "epoch_1": "The Project Gutenberg eBook of Pride and Prejudiceley. I had fordon on to\nawhall here of the deard he ss of his frul, in mes her hersing,\n",
+      "epoch_2": "The Project Gutenberg eBook of Pride and Prejudicerevy of in renhanly le. d heav; the the Tuzucleent in; insould of Gene iny, to se",
+      "epoch_3": "The Project Gutenberg eBook of Pride and PrejudicealHagof arvth llarmheer isecin\npenschonpwhad , to to his ohis  uwor\n geed ",
+      "best": "The Project Gutenberg eBook of Pride and Prejudice; and her compaidoloout\ndaughthok ie. I had not ind your go p; and his pard is ",
+      "initial": "The Project Gutenberg eBook of Pride and Prejudiceher bethbut Eliza, and edwith P\u2018ai.\u201dtofhem3lizbethld Xto unElizabethll , and alut ositat o y beenXbut Wlizdi"
+    },
+    {
+      "prompt": "You have the right to keep your own copy",
+      "epoch_1": "You have the right to keep your own copy\npear thing in the men st of Mish to ofshigh, revevevitever poin be don",
+      "epoch_2": "You have the right to keep your own copyahe not Iararre that to s. c, mo whifucromisreenaruf thonou\ns, thas, wo",
+      "epoch_3": "You have the right to keep your own copy smssiy, gent kHBoforristing yt \nsehait ishuforts \n\nelmevn\u201cis, rt i",
+      "best": "You have the right to keep your own copy\nyouappear ing to s by been her, I  applecties, he thought serle my that it dare\nwert ",
+      "initial": "You have the right to keep your own copyher bethbut Eliza, and le9A\u2018ai.\u201dtofheri3liz awhiXto unElizabethll , and by ceoentat ed y Gen1but 1liz; and "
+    },
+    {
+      "prompt": "most other parts of the world at no cost and",
+      "epoch_1": "most other parts of the world at no cost and, nree\neannor of theone of the prolawentrie:lmind to\ngincafurded ou",
+      "epoch_2": "most other parts of the world at no cost andcadss delongall beorled thetstidek ti\n\ntoe ]on w hsich as, and bee wt or",
+      "epoch_3": "most other parts of the world at no cost andll obe wpsf\nee e erhad eds \neseirasm\neing tutheed arll ain sbfnot em",
+      "best": "most other parts of the world at no cost ande ise vaying rough\nhis under; th, sing al wis, or nertioued able by duremite",
+      "initial": "most other parts of the world at no cost andher bethbut Eliza, and tt\u00b7A\u2018ai.\u201d7N(ha3lizbethwhiXto unElizabethll Pby ceositat o y \u201dreXbut 2lizvery "
+    },
+    {
+      "prompt": "xyzzy quux blorf plugh",
+      "epoch_1": "xyzzy quux blorf plughty seen theable, be\nthe\nenld mup the me\ncor of aued of\nof at it star an of ourh",
+      "epoch_2": "xyzzy quux blorf plughed a mdrenertaousewistionne it with I I beled a.\u201dfe dae daws uve the in ",
+      "epoch_3": "xyzzy quux blorf plugha le uud ationthr-reothe mt?hedeell\ny \nce hitatin en s orasthat sof an I t",
+      "best": "xyzzy quux blorf plugh\nthat his lookle.the bointo the uls cerve to uss barly\ncomproause in airsake ",
+      "initial": "xyzzy quux blorf plughher bethbut Eliza, and le9A\u2018ai.\u201d7w\u015323liz aecXat nowElizabethll dhe ut ositat ed y pen1but 2lizvery "
+    }
+  ]
+}
