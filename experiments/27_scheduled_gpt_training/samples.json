@@ -1,0 +1,57 @@
+{
+  "experiment": "27_scheduled_gpt_training",
+  "generation_settings": {
+    "max_new_tokens": 40,
+    "temperature": 0.8,
+    "top_k": null
+  },
+  "stages": [
+    "initial",
+    "epoch_1",
+    "epoch_2",
+    "epoch_3",
+    "best"
+  ],
+  "samples": [
+    {
+      "prompt": "It is a truth universally true that",
+      "initial": "It is a truth universally true thather bethbut Eliza, and ed 9de\u2018ou.\u201d7d be 3lizakDXat be Elizabethll dalceosit sed y been1x2liz; and ",
+      "epoch_1": "It is a truth universally true that\nit would be wiser to give it to make her fresh as soon as he formerly in\nanything, and m",
+      "epoch_2": "It is a truth universally true that\nevery private care; and covering her face with her handkerchief,\nElizabeth was soon lost ",
+      "epoch_3": "It is a truth universally true that\nevery moment more unconcerned and indifferent. Your profusion makes me\nsa",
+      "best": "It is a truth universally true that\nit would be wiser to give it to the society of the\nneighbourhood, nor incl"
+    },
+    {
+      "prompt": "The Project Gutenberg eBook of Pride and Prejudice",
+      "initial": "The Project Gutenberg eBook of Pride and Prejudiceher bethbut en , and ch 9P\u2018ou.\u201d7d x43lizbethld Xat be Elizabethll dirceosit sed y urenXx2liz; and ",
+      "epoch_1": "The Project Gutenberg eBook of Pride and Prejudice\n\nAuthor: Jane Austen\n\n\n        \nRelegance, and during the two part of a prett",
+      "epoch_2": "The Project Gutenberg eBook of Pride and Prejudice\n    \nThis eBook is for the use of anyone anywhere in the United States and\nmos",
+      "epoch_3": "The Project Gutenberg eBook of Pride and Prejudice\n    \nThis eBook is for the use of anyone anywhere in the United States and\nmos",
+      "best": "The Project Gutenberg eBook of Pride and Prejudice\n\nHere to Meryton, the\nneighbourhood, the society, appearing highly ple"
+    },
+    {
+      "prompt": "You have the right to keep your own copy",
+      "initial": "You have the right to keep your own copyDbethbut Eliza, and edwith y\u2018ou.\u201dtwaha3lizbethld Xat be Elizabethll dby ceout sed y urshe Xx2liz; and ",
+      "epoch_1": "You have the right to keep your own copy. If I\nhad no people directly rejoice in me last nightcapable of d",
+      "epoch_2": "You have the right to keep your own copy. Will you be very angry with me, my dear\n     Lizzy, if I take this opportunit",
+      "epoch_3": "You have the right to keep your own copy. Will you be spring! I will not take it on myself.\u201d\n\nThen turned round, he ",
+      "best": "You have the right to keep your own copy,\u201d said Darcy, \u201cI have been mistaken\ndaughter. Good graciously.\u201d\n\nS"
+    },
+    {
+      "prompt": "most other parts of the world at no cost and",
+      "initial": "most other parts of the world at no cost andher bethbut Eliza, and ed 9de\u2018ou.\u201d7d beha3lizakDXhabe Elizabethll dalceosit sed y been1x2liz; and ",
+      "epoch_1": "most other parts of the world at no cost and\nunallowing. You must come and make me to speak place at this\ntime of ye",
+      "epoch_2": "most other parts of the world at no cost and\nShe thought it bornet in Lady Catherine contracted with the sizement\nand the gentlem",
+      "epoch_3": "most other parts of the world at no cost and\nMiss Bingley. I think I have heard you say that you know them.\u201d\n\n\u201cI know them a litt",
+      "best": "most other parts of the world at no cost and\nunallantry _must_ feelings pride, is such a cause humble practi"
+    },
+    {
+      "prompt": "xyzzy quux blorf plugh",
+      "initial": "xyzzy quux blorf plughher bethbut Eliza, and ed9P\u2018ai.\u201dtwvery  3lizbethld Xto be Elizabethll dirceosit sed y Ren1but 2liz; and ",
+      "epoch_1": "xyzzy quux blorf plught.\n\nShe could not but two letters gan instant, she felt certainly on that he\nhad of being ",
+      "epoch_2": "xyzzy quux blorf plughters, she flattered herself that her wishes did\nnot err. But when she read and re-read, ",
+      "epoch_3": "xyzzy quux blorf plughter must be done by him! England\nwith an air of followed her to speak when",
+      "best": "xyzzy quux blorf plught.\n\nShe could not, however, in her partiality of such a conversation, he made hi"
+    }
+  ]
+}

@@ -52,7 +52,7 @@ def gpu_memory_stats(device=None) -> dict:
     peak_reserved = 0
     free_mb = None
     total_mb = None
-    if torch.cuda.is_available():
+    if dev.type == "cuda" and torch.cuda.is_available():
         allocated = int(torch.cuda.memory_allocated(dev))
         reserved = int(torch.cuda.memory_reserved(dev))
         peak_allocated = int(torch.cuda.max_memory_allocated(dev))

@@ -312,6 +312,122 @@ def estimate_parameter_memory_bytes(num_params, dtype=None) -> int:
     return int(num_params * dtype.itemsize)
 
 
+class WarmupCosineScheduler:
+    """Linear warmup followed by cosine decay to a nonzero minimum lr.
+
+    The schedule is defined over a *planned total number of optimizer updates*.
+    Update indices are 0-based: the first optimizer update uses
+    ``lr_for_step(0)`` and the last planned update (index ``total_steps - 1``)
+    uses ``min_lr``. ``step()`` must be called exactly once per optimizer
+    update (never per batch-processing sub-operation or validation pass).
+
+    All parameter groups receive the same scheduled lr. ``state_dict`` /
+    ``load_state_dict`` make the schedule resumable.
+    """
+
+    kind = "warmup_cosine"
+
+    def __init__(self, optimizer, total_steps, warmup_steps=0, min_lr=0.0, peak_lr=None):
+        total_steps = int(total_steps)
+        warmup_steps = int(warmup_steps)
+        min_lr = float(min_lr)
+        if total_steps < 1:
+            raise ValueError(f"total_steps must be >= 1, got {total_steps}")
+        if warmup_steps < 0:
+            raise ValueError(f"warmup_steps must be >= 0, got {warmup_steps}")
+        if warmup_steps >= total_steps:
+            raise ValueError(
+                f"warmup_steps ({warmup_steps}) must be < total_steps ({total_steps})"
+            )
+        if min_lr < 0.0:
+            raise ValueError(f"min_lr must be >= 0, got {min_lr}")
+        base_lr = float(optimizer.param_groups[0]["lr"]) if peak_lr is None else float(peak_lr)
+        if base_lr <= 0.0:
+            raise ValueError(f"peak_lr must be > 0, got {base_lr}")
+        if min_lr > base_lr:
+            raise ValueError(f"min_lr ({min_lr}) must be <= peak_lr ({base_lr})")
+        self.optimizer = optimizer
+        self.total_steps = total_steps
+        self.warmup_steps = warmup_steps
+        self.peak_lr = base_lr
+        self.min_lr = min_lr
+        self.completed_steps = 0
+        self.apply()
+
+    def lr_for_step(self, index):
+        """Learning rate for the 0-based optimizer update ``index``."""
+        index = int(index)
+        if index < 0:
+            index = 0
+        if index >= self.total_steps:
+            index = self.total_steps - 1
+        if self.warmup_steps > 0 and index < self.warmup_steps:
+            return self.peak_lr * float(index + 1) / float(self.warmup_steps)
+        decay_span = max(1, self.total_steps - 1 - self.warmup_steps)
+        progress = float(index - self.warmup_steps) / float(decay_span)
+        progress = min(1.0, max(0.0, progress))
+        cosine = 0.5 * (1.0 + math.cos(math.pi * progress))
+        return self.min_lr + (self.peak_lr - self.min_lr) * cosine
+
+    def apply(self):
+        lr = self.lr_for_step(self.completed_steps)
+        for group in self.optimizer.param_groups:
+            group["lr"] = lr
+        return lr
+
+    def step(self):
+        """Advance the schedule once, after a single optimizer update."""
+        if self.completed_steps < self.total_steps:
+            self.completed_steps += 1
+        return self.apply()
+
+    def set_completed_steps(self, completed_steps):
+        completed_steps = max(0, min(int(completed_steps), self.total_steps))
+        self.completed_steps = completed_steps
+        return self.apply()
+
+    def get_last_lr(self):
+        return [float(group["lr"]) for group in self.optimizer.param_groups]
+
+    def state_dict(self):
+        return {
+            "kind": self.kind,
+            "total_steps": int(self.total_steps),
+            "warmup_steps": int(self.warmup_steps),
+            "peak_lr": float(self.peak_lr),
+            "min_lr": float(self.min_lr),
+            "completed_steps": int(self.completed_steps),
+        }
+
+    def load_state_dict(self, state):
+        state = dict(state or {})
+        if state.get("kind") not in (None, self.kind):
+            raise ValueError(f"incompatible scheduler kind: {state.get('kind')!r}")
+        for key in ("total_steps", "warmup_steps"):
+            if key in state and int(state[key]) != int(getattr(self, key)):
+                raise ValueError(
+                    f"incompatible scheduler {key}: {state[key]} vs {getattr(self, key)}"
+                )
+        for key in ("peak_lr", "min_lr"):
+            if key in state and not math.isclose(float(state[key]), float(getattr(self, key))):
+                raise ValueError(
+                    f"incompatible scheduler {key}: {state[key]} vs {getattr(self, key)}"
+                )
+        self.set_completed_steps(int(state.get("completed_steps", 0)))
+        return self.state_dict()
+
+
+def make_warmup_cosine_scheduler(optimizer, total_steps, warmup_steps=0, min_lr=0.0, peak_lr=None):
+    """Build a linear-warmup + cosine-decay scheduler over planned total steps."""
+    return WarmupCosineScheduler(
+        optimizer,
+        total_steps=int(total_steps),
+        warmup_steps=int(warmup_steps),
+        min_lr=float(min_lr),
+        peak_lr=peak_lr,
+    )
+
+
 def make_optimizer(model, lr, weight_decay=0.0) -> torch.optim.AdamW:
     return torch.optim.AdamW(model.parameters(), lr=float(lr), weight_decay=float(weight_decay))
 
@@ -355,6 +471,7 @@ def train_epoch(
     diagnostics_interval: int = 100,
     val_loader=None,
     max_steps=None,
+    scheduler=None,
 ) -> dict:
     model.train()
     total_loss = 0.0
@@ -392,10 +509,13 @@ def train_epoch(
             pre_clip_norm = float(torch.nn.utils.clip_grad_norm_(model.parameters(), float(clip_grad)))
             post_clip_norm = pre_clip_norm if pre_clip_norm <= float(clip_grad) else float(clip_grad)
             clipped = pre_clip_norm > float(clip_grad)
+        used_lr = float(optimizer.param_groups[0]["lr"])
         old_params = None
         if diagnostics:
             old_params = [p.detach().clone() for p in model.parameters() if p.requires_grad]
         optimizer.step()
+        if scheduler is not None:
+            scheduler.step()
         total_loss += loss.item() * int(x.numel())
         total_tokens += int(x.numel())
         steps += 1
@@ -422,7 +542,7 @@ def train_epoch(
                     "grads_finite": bool(grads_finite),
                     "params_finite": bool(params_finite),
                     "update_ratio": float(update_ratio),
-                    "lr": float(optimizer.param_groups[0]["lr"]),
+                    "lr": used_lr,
                     "logits_dtype": logits_dtype,
                     "loss_dtype": loss_dtype,
                 }
@@ -484,6 +604,7 @@ def train_model(
     diagnostics: bool = False,
     diagnostics_interval: int = 100,
     diagnostics_val_loader=None,
+    scheduler=None,
 ):
     model.train()
     history = []
@@ -514,6 +635,7 @@ def train_model(
                 else val_loader
             ),
             max_steps=remaining,
+            scheduler=scheduler,
         )
         all_diagnostics.extend(train_metrics.get("diagnostics") or [])
         val_metrics = validate_epoch(model, val_loader, criterion, device)
@@ -575,7 +697,7 @@ def load_checkpoint(path):
     return torch.load(Path(path), map_location="cpu", weights_only=False)
 
 
-def restore_training_state(payload, model, optimizer=None, device=None) -> dict:
+def restore_training_state(payload, model, optimizer=None, device=None, scheduler=None, restore_rng=False) -> dict:
     config = dict(payload.get("model_config") or {})
     validated = validate_gpt_config(config)
     model_config = {k: validated[k] for k in ("vocab_size", "n_layers", "d_model", "n_heads", "dff", "context_len", "dropout")}
@@ -602,9 +724,25 @@ def restore_training_state(payload, model, optimizer=None, device=None) -> dict:
     optimizer_state = training_state.get("optimizer_state_dict")
     if optimizer is not None and optimizer_state is not None:
         optimizer.load_state_dict(optimizer_state)
+    scheduler_state = training_state.get("scheduler_state_dict")
+    if scheduler is not None and scheduler_state is not None:
+        scheduler.load_state_dict(scheduler_state)
+    if restore_rng:
+        if training_state.get("torch_rng_state") is not None:
+            torch.set_rng_state(training_state["torch_rng_state"])
+        if training_state.get("python_rng_state") is not None:
+            random.setstate(training_state["python_rng_state"])
+        cuda_states = training_state.get("cuda_rng_state_all")
+        if torch.cuda.is_available() and cuda_states is not None:
+            torch.cuda.set_rng_state_all(cuda_states)
     if device is not None:
         model.to(device)
-    return {"step": step, "tokenizer": tokenizer, "optimizer_state": optimizer_state}
+    return {
+        "step": step,
+        "tokenizer": tokenizer,
+        "optimizer_state": optimizer_state,
+        "scheduler_state": scheduler_state,
+    }
 
 
 def generate(
@@ -736,15 +874,34 @@ def run_training(args) -> dict:
     )
     criterion = nn.CrossEntropyLoss()
     optimizer = make_optimizer(model, lr, weight_decay=float(getattr(args, "weight_decay") or 0.0))
-    training_state = {"step": 0, "optimizer_state_dict": optimizer.state_dict()}
+    planned_total_steps = int(max_steps) if max_steps is not None else int(len(train_loader)) * int(epochs)
+    lr_schedule = str(getattr(args, "lr_schedule", "constant") or "constant")
+    scheduler = None
+    if lr_schedule == "warmup-cosine":
+        scheduler = make_warmup_cosine_scheduler(
+            optimizer,
+            total_steps=planned_total_steps,
+            warmup_steps=int(getattr(args, "warmup_steps", 0) or 0),
+            min_lr=float(getattr(args, "min_lr", 0.0) or 0.0),
+            peak_lr=lr,
+        )
+    training_state = {
+        "step": 0,
+        "optimizer_state_dict": optimizer.state_dict(),
+        "scheduler_state_dict": scheduler.state_dict() if scheduler is not None else None,
+    }
     ckpt_path = Path(getattr(args, "checkpoint") or DEFAULT_CHECKPOINT)
 
     resumed = False
     start_step = 0
     if getattr(args, "resume", None):
         payload = load_checkpoint(args.resume)
-        restored = restore_training_state(payload, model, optimizer, device)
+        restored = restore_training_state(
+            payload, model, optimizer, device, scheduler=scheduler, restore_rng=True
+        )
         start_step = int(restored["step"])
+        if scheduler is not None and restored.get("scheduler_state") is None:
+            scheduler.set_completed_steps(start_step)
         resumed = True
 
     result = train_model(
@@ -758,6 +915,7 @@ def run_training(args) -> dict:
         clip_grad=clip_grad,
         max_steps=max_steps,
         use_mixed_precision=bool(getattr(args, "mixed_precision", False)),
+        scheduler=scheduler,
     )
     result["resumed"] = resumed
     result["start_step"] = start_step
@@ -789,6 +947,12 @@ def run_training(args) -> dict:
                 "optimizer_state_dict": optimizer.state_dict(),
                 "torch_rng_state": torch.get_rng_state(),
                 "python_rng_state": random.getstate(),
+                "cuda_rng_state_all": (
+                    torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None
+                ),
+                "scheduler_state_dict": (
+                    scheduler.state_dict() if scheduler is not None else None
+                ),
             },
             args={k: v for k, v in vars(args).items() if not callable(v)},
         )
@@ -837,6 +1001,14 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max_steps", type=int, default=None, help="Maximum optimizer steps (overrides epochs)")
     parser.add_argument("--batch_size", type=int, default=None, help="Training batch size")
     parser.add_argument("--lr", type=float, default=None, help="Learning rate for AdamW")
+    parser.add_argument(
+        "--lr-schedule",
+        choices=("constant", "warmup-cosine"),
+        default="constant",
+        help="Learning-rate schedule (default: constant, preserving prior behavior)",
+    )
+    parser.add_argument("--warmup-steps", type=int, default=0, help="Linear warmup optimizer steps")
+    parser.add_argument("--min-lr", type=float, default=0.0, help="Minimum lr for cosine decay")
     parser.add_argument("--weight_decay", type=float, default=0.0, help="AdamW weight decay")
     parser.add_argument("--clip_grad", type=float, default=None, help="Gradient clipping max norm")
     parser.add_argument("--val_split", type=float, default=None, help="Validation split ratio")

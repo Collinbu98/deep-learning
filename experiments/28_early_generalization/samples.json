@@ -1,0 +1,69 @@
+{
+  "experiment": "28_early_generalization",
+  "generation_settings": {
+    "max_new_tokens": 40,
+    "temperature": 0.8,
+    "top_k": null
+  },
+  "stages": [
+    "initial",
+    "h3000_best",
+    "h3000_final",
+    "h6000_best",
+    "h6000_final",
+    "h12000_best",
+    "h12000_final"
+  ],
+  "samples": [
+    {
+      "prompt": "It is a truth universally true that",
+      "initial": "It is a truth universally true thather bethbut Eliza, and ed 9de\u2018ou.\u201d7d be 3lizakDXat be Elizabethll dalceosit sed y been1x2liz; and ",
+      "h3000_best": "It is a truth universally true that\nface to permistress wish of those to be ill mannumstance. Her proposal",
+      "h3000_final": "It is a truth universally true that\nface to permistress which more than Elizabeth and ill make opinion of the regard with whi",
+      "h6000_best": "It is a truth universally true that, I shall go on \u2018With pride, then shall be mentify the truptable moment. ",
+      "h6000_final": "It is a truth universally true that\nface to perhaps.\u201d\n\nThey repared to the rest, and then no objection\nof Wic",
+      "h12000_best": "It is a truth universally true that\nface to get it as the twenty which is not ashame to doubts of\nLydia is women very ",
+      "h12000_final": "It is a truth universally true that\n     I shall be quite determined to him, to conceal them, I tell you\n     in Hert"
+    },
+    {
+      "prompt": "The Project Gutenberg eBook of Pride and Prejudice",
+      "initial": "The Project Gutenberg eBook of Pride and Prejudiceher bethbut en , and ch 9P\u2018ou.\u201d7d x43lizbethld Xat be Elizabethll dirceosit sed y urenXx2liz; and ",
+      "h3000_best": "The Project Gutenberg eBook of Pride and Prejudice, though to permistress wish though Elizabeth would have doubtless those repetime; and ",
+      "h3000_final": "The Project Gutenberg eBook of Pride and Prejudice, that\nto do much as to the same time and happiesday followed Lydia house and ",
+      "h6000_best": "The Project Gutenberg eBook of Pride and Prejudice, though I\nmyself.\u201d\n\nThe might instants of the summerts of their proposal",
+      "h6000_final": "The Project Gutenberg eBook of Pride and Prejudice, though\nalways love, more than Elizabeth and the matter opinion of the real peo",
+      "h12000_best": "The Project Gutenberg eBook of Pride and Prejudice,\nand the objectional twenty which was no unwelcomed by politened to be\nproprie",
+      "h12000_final": "The Project Gutenberg eBook of Pride and Prejudices Austen,\nwith the utmost place weeks, the day of every titute, and the evening "
+    },
+    {
+      "prompt": "You have the right to keep your own copy",
+      "initial": "You have the right to keep your own copyDbethbut Eliza, and edwith y\u2018ou.\u201dtwaha3lizbethld Xat be Elizabethll dby ceout sed y urshe Xx2liz; and ",
+      "h3000_best": "You have the right to keep your own copyright. I am\nquit the two much think way there were other temper, I wish; and ",
+      "h3000_final": "You have the right to keep your own copyrious, I\nmyself.\u201d\n\nThey were sat distance of a mother, at Longbourn with an ",
+      "h6000_best": "You have the right to keep your own copyriticoldren? That shall we are to be ill my follow my preparticu",
+      "h6000_final": "You have the right to keep your own copyright on your\nmy represent price of your uncivility?\u201d\n\n\u201cI never say,\u201d",
+      "h12000_best": "You have the right to keep your own copy,\nreserved for myself as to wait which I can happily do not open so furn in persu",
+      "h12000_final": "You have the right to keep your own copyriad, and I\nask you look you no.\u201d\n\n\u201cI think you would liked to like it which you tell me "
+    },
+    {
+      "prompt": "most other parts of the world at no cost and",
+      "initial": "most other parts of the world at no cost andher bethbut Eliza, and ed 9de\u2018ou.\u201d7d beha3lizakDXhabe Elizabethll dalceosit sed y been1x2liz; and ",
+      "h3000_best": "most other parts of the world at no cost and\nface to permistress of the more than Elizabeth would have doubtless of the\nrepetime; and ",
+      "h3000_final": "most other parts of the world at no cost and\nface to permonly as she would. As Elizabeth would have more other take the\nreproper; and ",
+      "h6000_best": "most other parts of the world at no cost and\nface of the most understood regure. It is more follow so great proposal",
+      "h6000_final": "most other parts of the world at no cost and\nface of the most conscious regue. His regrets were town the requestion; and ",
+      "h12000_best": "most other parts of the world at no cost and\nresentment which musted twenty regular figures opinion of the real plain",
+      "h12000_final": "most other parts of the world at no cost and\nserves, and that his country.\n\nElizabeth had now observed that Jane had given so so"
+    },
+    {
+      "prompt": "xyzzy quux blorf plugh",
+      "initial": "xyzzy quux blorf plughher bethbut Eliza, and ed9P\u2018ai.\u201dtwvery  3lizbethld Xto be Elizabethll dirceosit sed y Ren1but 2liz; and ",
+      "h3000_best": "xyzzy quux blorf plughing to accused her. \u2018With she\nreguards and Elizabeth had almoved at Longbourn with hi",
+      "h3000_final": "xyzzy quux blorf plughing to the objectionable two manners and happied, and a follow my prepetime; and ",
+      "h6000_best": "xyzzy quux blorf plughters. I\nwas most business, I cannot ashamed there are opinion to be\ninterferen",
+      "h6000_final": "xyzzy quux blorf plughters. I\nwill this---would! I shall be married to be take the\nrepetimat",
+      "h12000_best": "xyzzy quux blorf plughing face with which miable to wahaevery\nassurance, and he followed her repeated per; and ",
+      "h12000_final": "xyzzy quux blorf plughing her spirits; and \u2018Mrs.\nBingley was so coming, in dance, deigned. Hurst, though"
+    }
+  ]
+}
